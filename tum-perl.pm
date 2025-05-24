@@ -24,12 +24,12 @@ eval { require Term::ANSIColor; Term::ANSIColor->import('color'); }; if ($@) { p
 #
 
 our @SUPPORTED_PMS = (
-	"apt",                   # <https://wiki.debian.org/Apt>
-	"aptitude",              # <https://wiki.debian.org/Aptitude>
-	"apk",                   # <https://wiki.alpinelinux.org/wiki/Alpine_Package_Keeper>
-	"dnf",                   # <https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html-single/managing_software_with_the_dnf_tool/index>
-	"dpkg",                  # <https://wiki.debian.org/dpkg>
-	"guix",                  # <https://guix.gnu.org/manual/en/html_node/Package-Management.html>
+    "apt",                   # <https://wiki.debian.org/Apt>
+    "aptitude",              # <https://wiki.debian.org/Aptitude>
+    "apk",                   # <https://wiki.alpinelinux.org/wiki/Alpine_Package_Keeper>
+    "dnf",                   # <https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html-single/managing_software_with_the_dnf_tool/index>
+    "dpkg",                  # <https://wiki.debian.org/dpkg>
+    "guix",                  # <https://guix.gnu.org/manual/en/html_node/Package-Management.html>
     "pkg",                   # <https://man.freebsd.org/cgi/man.cgi?pkg>
     "pkgin",                 # <https://pkgin.net/>
     "pkg_add",               # <https://man.openbsd.org/pkg_add>
@@ -47,11 +47,11 @@ our @SUPPORTED_PMS = (
 # 
 
 our @SUPPORTED_INITS = (
-	"sysvinit",              # <https://wiki.gentoo.org/wiki/Sysvinit>
-	"openrc",                # <https://wiki.gentoo.org/wiki/OpenRC>
-	"s6",                    # <https://skarnet.org/software/s6/>
-	"runit",                 # <https://smarden.org/runit/>
-	"systemd"                # <https://systemd.io/>
+    "sysvinit",              # <https://wiki.gentoo.org/wiki/Sysvinit>
+    "openrc",                # <https://wiki.gentoo.org/wiki/OpenRC>
+    "s6",                    # <https://skarnet.org/software/s6/>
+    "runit",                 # <https://smarden.org/runit/>
+    "systemd"                # <https://systemd.io/>
 );
 
 #
@@ -67,9 +67,9 @@ our @DEBIAN_BASED = (
     # <https://www.debian.org/>
     
     "debian", "ubuntu", "xubuntu", "linuxmint", "lmde", "trisquel", "devuan", "kali", "parrotos", "popos", "elementaryos",
-	"mx", "antix", "crunchbag", "crunchbag++", "pureos", "deepin", "zorinos", "peppermintos", "lubuntu", "kubuntu", "wubuntu",
-	"astra", "tailsos", "ututos", "ulteo", "aptosid", "canaima", "corel", "dreamlinux", "elive", "finnix", "gibraltar",
-	"gnulinex", "kanotix", "kurumin", "linspire", "maemo", "mepis", "vyatta", "solusos", "openzaurus", "cutefishos", "knoppix",
+    "mx", "antix", "crunchbag", "crunchbag++", "pureos", "deepin", "zorinos", "peppermintos", "lubuntu", "kubuntu", "wubuntu",
+    "astra", "tailsos", "ututos", "ulteo", "aptosid", "canaima", "corel", "dreamlinux", "elive", "finnix", "gibraltar",
+    "gnulinex", "kanotix", "kurumin", "linspire", "maemo", "mepis", "vyatta", "solusos", "openzaurus", "cutefishos", "knoppix",
     "siduction", "psychos", "neptune", "doglinux", "armbian", "droidian", "mobian", "grml"
 );
 
@@ -77,8 +77,8 @@ our @ARCH_BASED = (
     # A simple, lightweight distribution.
     # <https://www.archlinux.org/>
 
-	"arch", "artix", "manjaro", "endeavouros", "garuda", "parabola", "hyperbola", "archbang", "blackarch", "librewolf", "archlabs",
-	"chakra", "archex", "archman", "arco", "bluestar", "chimeraos", "instantos", "kaos", "rebornos", "archhurd", "cyberos", "archcraft",
+    "arch", "artix", "manjaro", "endeavouros", "garuda", "parabola", "hyperbola", "archbang", "blackarch", "librewolf", "archlabs",
+    "chakra", "archex", "archman", "arco", "bluestar", "chimeraos", "instantos", "kaos", "rebornos", "archhurd", "cyberos", "archcraft",
     "cachyos", "ctlos", "crystallinux", "msys2", "obarun", "parchlinux", "snal" , "steamos3", "tearchlinux", "uboslinux" 
 );
 
@@ -86,15 +86,15 @@ our @ALPINE_BASED = (
     # Small. Simple. Secure.
     # <https://www.alpinelinux.org/>
 
-	"alpine", "postmarket"
+    "alpine", "postmarket"
 );
 
 our @GENTOO_BASED = (
     # Welcome to Gentoo, a highly flexible, source-based Linux distribution.
     # <https://www.gentoo.org/>
-
-	"gentoo", "argent", "pentoo", "funtoo", "calculatelinux", "chromeosflex", "vidalinux", "knopperdisk", "gentoox", "sabayon", "chromiumos",
-	"tinhatlinux", "ututo", "exgent", "flatcarlinux", "gentooplayer", "decibel". "liguros", "macaronilinux", "moccacinoos", "xenialinux", "redcorelinux",
+    
+    "gentoo", "argent", "pentoo", "funtoo", "calculatelinux", "chromeosflex", "vidalinux", "knopperdisk", "gentoox", "sabayon", "chromiumos",
+    "tinhatlinux", "ututo", "exgent", "flatcarlinux", "gentooplayer", "decibel". "liguros", "macaronilinux", "moccacinoos", "xenialinux", "redcorelinux",
     "porteusklosk"
 );
 
@@ -102,22 +102,22 @@ our @VOID_BASED = (
     # Void is a general purpose operating system, based on the monolithic Linux kernel.
     # <https://www.voidlinux.org/>
 
-	"void", "argon", "shikake", "pristine", "projecttrident"
+    "void", "argon", "shikake", "pristine", "projecttrident"
 );
 
 our @DRAGORA_BASED = (
     # Stable. Secure. Reliable.
     # <https://www.dragora.org/>
 
-	"dragora"
+    "dragora"
 );
 
 our @SLACKWARE_BASED = (
     # The Slackware Linux Project.
     # <http://www.slackware.com/>
 
-	"slackware", "salixos", "simplelinux", "basiclinux", "frugalware", "austrumi", "hostgis", "kateos", "mulinux", "porteus", "absolutelinux",
-	"nimblex", "platypux", "slackintosh", "slax", "supergamer", "topologilinux", "vectorlinux", "wolvix", "zenwalk", "zipslack", "slackopuppy",
+    "slackware", "salixos", "simplelinux", "basiclinux", "frugalware", "austrumi", "hostgis", "kateos", "mulinux", "porteus", "absolutelinux",
+    "nimblex", "platypux", "slackintosh", "slax", "supergamer", "topologilinux", "vectorlinux", "wolvix", "zenwalk", "zipslack", "slackopuppy",
     "slackel", "wifislax", "plamolinux", "slamd64"
 );
 
@@ -125,14 +125,14 @@ our @REDHAT_BASED = (
     # Red Hat is the leading provider of enterprise open source software solutions.
     # <https://www.redhat.com/>
 
-	"rhel", "fedora", "mos", "rocky", "centos", "opensuse", "almalinux", "oraclelinux", "circlelinux", "clearos", "euleros"
+    "rhel", "fedora", "mos", "rocky", "centos", "opensuse", "almalinux", "oraclelinux", "circlelinux", "clearos", "euleros"
 );
 
 our @GUIX_BASED = (
     # A complete GNU operating system harnessing all the capabilities of the Guix software. Spawned bu Guix itself.
     # <https://guix.gnu.org/>
 
-	"guix"
+    "guix"
 );
 
 ##
@@ -150,7 +150,7 @@ our @FREEBSD_BASED = (
 our @OPENBSD_BASED = (
     # Only two remote holes in the default install, in a heck of a long time!
     # <https://www.openbsd.org/>
-
+    
     "openbsd", "adj", "libertybsd", "bitrig", "bowlfish", "ekkobsd", "embsd", "fabbsd", "fugulta", "marbsd", "microbsd", "commixwall", "bsdanywhere",
     "mirosbsd", "olivebsd", "psygnat", "quetzal", "sonafr", "hyperbolabsd", "aeriebsd", "anonymos", "utmfw", "fabbsd" 
 );
@@ -158,8 +158,8 @@ our @OPENBSD_BASED = (
 our @NETBSD_BASED = (
     # NetBSD is a free, fast, secure, and highly portable Unix-like Open Source operating system.
     # <https://www.netbsd.org/>
-
-	"netbsd", "blackbsd", "edgebsd", "seos", "os108", "jibbed", "fdgw". "g4u", "irbsd", "smolbsd"
+    
+    "netbsd", "blackbsd", "edgebsd", "seos", "os108", "jibbed", "fdgw". "g4u", "irbsd", "smolbsd"
 );
 
 #
