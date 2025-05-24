@@ -15,6 +15,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>
 
+package tum_perl;
+
 use strict;
 use warnings;
 eval { require Term::ANSIColor; Term::ANSIColor->import('color'); }; if ($@) { print "[!] Import: Can't import: $@"; exit; }
@@ -390,7 +392,7 @@ sub is_alpine_based
 
 sub is_gentoo_based
 {
-	# Checks if the given distribution is Gentoo-based.
+    # Checks if the given distribution is Gentoo-based.
     #
     # This function takes a distribution name (e.g., Pentoo, Calculate) and
     # compares it against a list of known Gentoo-based distributions.
@@ -425,7 +427,23 @@ sub is_gentoo_based
 
 sub is_void_based
 {
-	# TODO: Write good documentation.
+	#
+    # This function takes a distribution name (e.g., Void, Shikake) and
+    # compares it against a list of known Void-based distributions.
+    # If the given distribution is found in the list, the function returns
+    # 1 (true); otherwise, it returns 0 (false).
+    #
+    # Parameters:
+    #     $distro (string): The name of the distribution to check.
+    #     @void_list (array): A list of known Void-based distributions.
+    #
+    # Returns:
+    #     1 if the distribution is Void-based, 0 otherwise.
+    #
+    # Example:
+    #     my $is_void = is_void_based("Pristine", @VOID_BASED);
+    #     print "Void-based: $is_void\n";
+
     
     my ($distro, @void_list) = @_;
     
@@ -444,7 +462,22 @@ sub is_void_based
 
 sub is_dragora_based
 {
-	# TODO: Write good documentation.
+    # This function takes a distribution name (e.g., Dragora) and
+    # compares it against a list of known Dragora-based distributions.
+    # If the given distribution is found in the list, the function returns
+    # 1 (true); otherwise, it returns 0 (false).
+    #
+    # Parameters:
+    #     $distro (string): The name of the distribution to check.
+    #     @dragora_list (array): A list of known Dragora-based distributions.
+    #
+    # Returns:
+    #     1 if the distribution is Dragora-based, 0 otherwise.
+    #
+    # Example:
+    #     my $is_dragora = is_dragora_based("Dragora", @DRAGORA_BASED);
+    #     print "Dragora-based: $is_dragora\n";
+
     
     my ($distro, @dragora_list) = @_;
     
@@ -463,8 +496,22 @@ sub is_dragora_based
 
 sub is_slackware_based
 {
-	# TODO: Write good documentation.
-    
+    # This function takes a distribution name (e.g., Zenwalk, SalixOS) and
+    # compares it against a list of known Slackware-based distributions.
+    # If the given distribution is found in the list, the function returns
+    # 1 (true); otherwise, it returns 0 (false).
+    #
+    # Parameters:
+    #     $distro (string): The name of the distribution to check.
+    #     @slackware_list (array): A list of known Slackware-based distributions.
+    #
+    # Returns:
+    #     1 if the distribution is Gentoo-based, 0 otherwise.
+    #
+    # Example:
+    #     my $is_slackware = is_slackware_based("Zenwalk", @SLACKWARE_BASED);
+    #     print "Slackware-based: $is_slackware\n";
+ 
     my ($distro, @slackware_list) = @_;
     
     $distro = lc($distro);
@@ -482,8 +529,22 @@ sub is_slackware_based
 
 sub is_redhat_based
 {
-	# TODO: Write good documentation.
-    
+    # This function takes a distribution name (e.g., Fedora, CentOS) and
+    # compares it against a list of known RHEL-based distributions.
+    # If the given distribution is found in the list, the function returns
+    # 1 (true); otherwise, it returns 0 (false).
+    #
+    # Parameters:
+    #     $distro (string): The name of the distribution to check.
+    #     @redhat_list (array): A list of known RHEL-based distributions.
+    #
+    # Returns:
+    #     1 if the distribution is RHEL-based, 0 otherwise.
+    #
+    # Example:
+    #     my $is_rhel = is_rhel_based("FEDORA", @REDHAT_BASED);
+    #     print "RHEL-based: $is_rhel\n";
+
     my ($distro, @redhat_list) = @_;
     
     $distro = lc($distro);
@@ -501,8 +562,22 @@ sub is_redhat_based
 
 sub is_guix_based
 {
-	# TODO: Write good documentation.
-    
+    # This function takes a distribution name (e.g., Guix) and
+    # compares it against a list of known Guix-based distributions.
+    # If the given distribution is found in the list, the function returns
+    # 1 (true); otherwise, it returns 0 (false).
+    #
+    # Parameters:
+    #     $distro (string): The name of the distribution to check.
+    #     @guix_list (array): A list of known Guix-based distributions.
+    #
+    # Returns:
+    #     1 if the distribution is Guix-based, 0 otherwise.
+    #
+    # Example:
+    #     my $is_guix = is_guix_based("Guix", @GUIX_BASED);
+    #     print "Guix-based: $is_guix\n";
+ 
     my ($distro, @guix_list) = @_;
     
     $distro = lc($distro);
@@ -520,8 +595,22 @@ sub is_guix_based
 
 sub is_freebsd_based
 {
-	# TODO: Write good documentation.
-    
+    # This function takes a distribution name (e.g., DragonflyBSD, helloSystem) and
+    # compares it against a list of known FreeBSD-based distributions.
+    # If the given distribution is found in the list, the function returns
+    # 1 (true); otherwise, it returns 0 (false).
+    #
+    # Parameters:
+    #     $distro (string): The name of the distribution to check.
+    #     @freebsd_list (array): A list of known FreeBSD-based distributions.
+    #
+    # Returns:
+    #     1 if the distribution is FreeBSD-based, 0 otherwise.
+    #
+    # Example:
+    #     my $is_freebsd = is_freebsd_based("DragonflyBSD", @FREEBSD_BASED);
+    #     print "FreeBSD-based: $is_freebsd\n";
+ 
     my ($distro, @freebsd_list) = @_;
     
     $distro = lc($distro);
@@ -539,7 +628,21 @@ sub is_freebsd_based
 
 sub is_openbsd_based
 {
-	# TODO: Write good documentation.
+    # This function takes a distribution name (e.g., HyperbolaBSD, adj) and
+    # compares it against a list of known OpenBSD-based distributions.
+    # If the given distribution is found in the list, the function returns
+    # 1 (true); otherwise, it returns 0 (false).
+    #
+    # Parameters:
+    #     $distro (string): The name of the distribution to check.
+    #     @openbsd_list (array): A list of known OpenBSD-based distributions.
+    #
+    # Returns:
+    #     1 if the distribution is OpenBSD-based, 0 otherwise.
+    #
+    # Example:
+    #     my $is_openbsd = is_openbsd_based("HyperbolaBSD", @OPENBSD_BASED);
+    #     print "OpenBSD-based: $is_openbsd\n";
     
     my ($distro, @openbsd_list) = @_;
     
@@ -558,7 +661,21 @@ sub is_openbsd_based
 
 sub is_netbsd_based
 {
-	# TODO: Write good documentation.
+    # This function takes a distribution name (e.g., BlackBSD, EdgeBSD) and
+    # compares it against a list of known NetBSD-based distributions.
+    # If the given distribution is found in the list, the function returns
+    # 1 (true); otherwise, it returns 0 (false).
+    #
+    # Parameters:
+    #     $distro (string): The name of the distribution to check.
+    #     @netbsd_list (array): A list of known NetBSD-based distributions.
+    #
+    # Returns:
+    #     1 if the distribution is NetBSD-based, 0 otherwise.
+    #
+    # Example:
+    #     my $is_netbsd = is_netbsd_based("BlackBSD", @NETBSD_BASED);
+    #     print "NetBSD-based: $is_netbsd\n";
     
     my ($distro, @netbsd_list) = @_;
     
@@ -905,7 +1022,7 @@ sub execute_service_sysvinit
 #
 
 ##
-## 'apt' package management
+## 'apt' package management:
 ##
 
 #
@@ -923,3 +1040,6 @@ sub package_handling
 }
 
 # tum_perl_tester();
+
+1;
+
