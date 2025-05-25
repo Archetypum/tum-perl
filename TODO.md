@@ -15,3 +15,5 @@
     - **README.md**.
 
 5) Add this motherfucking piece of shit to the **CPAN**.
+
+6) Add **dinit** support.

@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 #
 # This file is part of tum-perl.
-# Foobar is free software: you can redistribute it and/or modify it under the terms of
+# tum-perl is free software: you can redistribute it and/or modify it under the terms of
 # the GNU General Public License as published by the Free Software Foundation,
 # either version 3 of the License, or (at your option) any later version.
 #
@@ -80,7 +80,8 @@ sub full_restart_service
 {
     my $self = shift;
     
-    unless ($self->{service}) {
+    unless ($self->{service})
+    {
         print RED, "[!] Error: --full-restart requires a service name.\n", RESET;
         return 0;
     }
@@ -94,11 +95,13 @@ sub execute
 {
     my $self = shift;
 
-    if ($self->{status_all}) {
+    if ($self->{status_all})
+    {
         return $self->status_all_service();
     }
 
-    if ($self->{full_restart}) {
+    if ($self->{full_restart})
+    {
         return $self->full_restart_service();
     }
 
