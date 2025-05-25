@@ -19,7 +19,7 @@ package tum_perl;
 
 use strict;
 use warnings;
-eval { require Term::ANSIColor; Term::ANSIColor->import('color'); }; if ($@) { print "[!] Import: Can't import: $@"; exit; }
+eval { require Term::ANSIColor; Term::ANSIColor->import('color'); }; if ($@) { print "[!] Import Error: Can't import: $@"; exit; }
 
 #
 # Supported package managers list:
@@ -162,6 +162,20 @@ our @NETBSD_BASED = (
     # <https://www.netbsd.org/>
     
     "netbsd", "blackbsd", "edgebsd", "seos", "os108", "jibbed", "fdgw". "g4u", "irbsd", "smolbsd"
+);
+
+##
+## Solaris/illumos operating systems:
+##
+
+our @SOLARIS_BASED = (
+    # Oracle Solaris is the trusted business platform that you depend on. Oracle Solaris 11 gives you consistent compatibility, is simple to use, and is designed to always be secure.
+    # <https://www.oracle.com/solaris/solaris11/>
+    #
+    # Community-driven illumos Distribution.
+    # <https://www.openindiana.org/>
+
+    "solaris", "opensolaris", "openindiana"
 );
 
 #
@@ -1029,7 +1043,7 @@ sub execute_service_sysvinit
 # Init/Package handling functions:
 #
 
-sub init_system_handling
+sub init_handling
 {
     exit;
 }
