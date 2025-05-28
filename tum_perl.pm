@@ -53,7 +53,8 @@ our @SUPPORTED_INITS = (
     "openrc",                # <https://wiki.gentoo.org/wiki/OpenRC>
     "s6",                    # <https://skarnet.org/software/s6/>
     "runit",                 # <https://smarden.org/runit/>
-    "systemd"                # <https://systemd.io/>
+    "systemd",               # <https://systemd.io/>
+    "dinit"                  # <https://davmac.org/projects/dinit/>
 );
 
 #

@@ -15,4 +15,10 @@
 
 package OpenRCManagement;
 
+use strict;
+use warnings;
+
+use constant RED   => "\e[31m";
+use constant RESET => "\e[0m";
+
 1;

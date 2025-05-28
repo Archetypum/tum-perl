@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU General Public License along with
 # tum-perl. If not, see <https://www.gnu.org/licenses/>. 
 
-package launchdManagement;
+package Miscellaneous;
 
 use strict;
 use warnings;

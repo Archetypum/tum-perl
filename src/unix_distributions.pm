@@ -15,6 +15,12 @@
 
 package UnixDistributions;
 
+use strict;
+use warnings;
+
+use constant RED   => "\e[31m";
+use constant RESET => "\e[0m";
+
 #
 # Supported operating systems list:
 #
