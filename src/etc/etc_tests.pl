@@ -30,72 +30,10 @@ use constant ORANGE       => "\033[38;5;214m";
 use constant LIGHT_ORANGE => "\033[38;5;220m";
 
 use lib '.'; 
-require sysvinit_management; require openrc_management; require s6_management; require dinit_management; require runit_management; require systemd_management; require launchd_management;
 require unix_distributions;
 require misc;
 
 no warnings 'once';
-
-sub test_module_systemd_management
-{
-    exit;
-}
-
-sub test_module_launchd_management
-{
-    exit;
-}
-
-sub test_module_openrc_management
-{
-    exit;
-}
-
-sub test_module_s6_management
-{
-    exit;
-}
-
-sub test_module_runit_management
-{
-    exit;
-}
-
-sub test_module_dinit_management
-{
-    exit;
-}
-
-sub test_module_sysvinit_management
-{
-    print GREEN, "[*] Starting test for Perl module: 'sysvinit_management.pm':\n\n", RESET;
-
-    my $service_start_ssh = SysVInitManagement->new('start', 'ssh');
-    $service_start_ssh->execute();
-
-    my $service_stop_ssh = SysVInitManagement->new('stop', 'ssh');
-    $service_stop_ssh->execute();
-
-    my $service_reload_ssh = SysVInitManagement->new('reload', 'ssh');
-    $service_reload_ssh->execute();
-
-    my $service_force_reload_ssh = SysVInitManagement->new('force_reload', 'ssh');
-    $service_force_reload_ssh->execute();
-
-    my $service_restart_ssh = SysVInitManagement->new('restart', 'ssh');
-    $service_restart_ssh->execute();
-
-    my $service_status_ssh = SysVInitManagement->new('status', 'ssh');
-    $service_status_ssh->execute();
-        
-    my $service_status_all = SysVInitManagement->new('--status-all', '');
-    $service_status_all->execute();
-
-    my $service_full_restart = SysVInitManagement->new('--full-restart', 'ssh');
-    $service_full_restart->execute();
-
-    print GREEN, "\n[*] End of tests.\n\n", RESET;
-}
 
 sub test_module_unix_distributions
 {
@@ -109,6 +47,7 @@ sub test_module_unix_distributions
     map { print BROWN, "[Dragora]: $_", RESET, "\n" } @UnixDistributions::DRAGORA_BASED;
     map { print BLACK, "[Slackware]: $_", RESET, "\n" } @UnixDistributions::SLACKWARE_BASED;
     map { print DARK_RED, "[RHEL]: $_", RESET, "\n" } @UnixDistributions::REDHAT_BASED;
+    map { print GREEN, "[openSUSE]: $_", RESET, "\n" } @UnixDistributions::OPENSUSE_BASED;
     map { print YELLOW, "[Guix]: $_", RESET, "\n" } @UnixDistributions::GUIX_BASED;
     map { print DARK_RED, "[FreeBSD]: $_", RESET, "\n" } @UnixDistributions::FREEBSD_BASED;
     map { print ORANGE, "[OpenBSD]: $_", RESET, "\n" } @UnixDistributions::OPENBSD_BASED;
@@ -124,7 +63,7 @@ sub test_module_misc
 
     Miscellaneous::check_privileges();
     my $version = Miscellaneous::tum_version();
-    print GREEN, "[*] Current tum-perl version: ", "$version", "\n", RESET;
+    print GREEN, "[tum-perl] Current tum-perl version: ", "$version", "\n", RESET;
 
     map { print YELLOW, "[Supported Package Managers]: $_", RESET, "\n" } @Miscellaneous::SUPPORTED_PMS;
     map { print DARK_RED, "[Supported Initialization Systems]: $_", RESET, "\n"} @Miscellaneous::SUPPORTED_INITS;
@@ -135,13 +74,6 @@ sub test_module_misc
 
 sub main
 {
-    test_module_sysvinit_management();
-    # test_module_systemd_management();
-    # test_module_launchd_management();
-    # test_module_openrc_management();
-    # test_module_s6_management();
-    # test_module_runit_management();
-    # test_module_dinit_management();
     test_module_unix_distributions();
     test_module_misc();
 

@@ -95,6 +95,13 @@ our @REDHAT_BASED = (
     "rhel", "fedora", "mos", "rocky", "centos", "opensuse", "almalinux", "oraclelinux", "circlelinux", "clearos", "euleros"
 );
 
+our @OPENSUSE_BASED = (
+    # The makers' choice for sysadmins, developers and desktop users.
+    # <https://www.opensuse.org/>
+
+    "opensuse", "geckolinux", "linuxkamarada"
+);
+
 our @GUIX_BASED = (
     # A complete GNU operating system harnessing all the capabilities of the Guix software. Spawned bu Guix itself.
     # <https://guix.gnu.org/>
