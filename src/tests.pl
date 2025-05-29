@@ -32,6 +32,7 @@ use constant LIGHT_ORANGE => "\033[38;5;220m";
 use lib '.'; 
 require sysvinit_management; require openrc_management; require s6_management; require dinit_management; require runit_management; require systemd_management; require launchd_management;
 require unix_distributions;
+require misc;
 
 no warnings 'once';
 
@@ -67,7 +68,7 @@ sub test_module_dinit_management
 
 sub test_module_sysvinit_management
 {
-    print GREEN, "[*] Starting test for Perl module: 'unix_distributions.pm':\n\n", RESET;
+    print GREEN, "[*] Starting test for Perl module: 'sysvinit_management.pm':\n\n", RESET;
 
     my $service_start_ssh = SysVInitManagement->new('start', 'ssh');
     $service_start_ssh->execute();
@@ -93,12 +94,12 @@ sub test_module_sysvinit_management
     my $service_full_restart = SysVInitManagement->new('--full-restart', 'ssh');
     $service_full_restart->execute();
 
-    print GREEN, "\n[*] End of test.\n", RESET;
+    print GREEN, "\n[*] End of tests.\n\n", RESET;
 }
 
 sub test_module_unix_distributions
 {
-    print GREEN, "[*] Starting test for Perl module: 'sysvinit_management.pm':\n\n", RESET;
+    print GREEN, "[*] Starting tests for Perl module: 'unix_distributions.pm':\n\n", RESET;
 
     map { print RED, "[Debian]: $_", RESET, "\n" } @UnixDistributions::DEBIAN_BASED;
     map { print CYAN, "[Arch]: $_", RESET, "\n" } @UnixDistributions::ARCH_BASED;
@@ -114,13 +115,35 @@ sub test_module_unix_distributions
     map { print LIGHT_ORANGE, "[NetBSD]: $_", RESET, "\n" } @UnixDistributions::NETBSD_BASED;
     map { print RED, "[Solaris/illumos]: $_", RESET, "\n" } @UnixDistributions::SOLARIS_ILLUMOS_BASED;
     
-    print GREEN, "\n[*] End of test.\n", RESET;
+    print GREEN, "\n[*] End of test.\n\n", RESET;
+}
+
+sub test_module_misc
+{
+    print GREEN, "[*] Starting tests for Perl module: 'misc.pm':\n\n", RESET;
+
+    Miscellaneous::check_privileges();
+    my $version = Miscellaneous::tum_version();
+    print GREEN, "[*] Current tum-perl version: ", "$version", "\n", RESET;
+
+    map { print YELLOW, "[Supported Package Managers]: $_", RESET, "\n" } @Miscellaneous::SUPPORTED_PMS;
+    map { print DARK_RED, "[Supported Initialization Systems]: $_", RESET, "\n"} @Miscellaneous::SUPPORTED_INITS;
+
+    print GREEN, "\n[*] End of tests.\n\n", RESET;
+
 }
 
 sub main
 {
     test_module_sysvinit_management();
-    # test_module_unix_distributions();
+    # test_module_systemd_management();
+    # test_module_launchd_management();
+    # test_module_openrc_management();
+    # test_module_s6_management();
+    # test_module_runit_management();
+    # test_module_dinit_management();
+    test_module_unix_distributions();
+    test_module_misc();
 
     exit;
 }
