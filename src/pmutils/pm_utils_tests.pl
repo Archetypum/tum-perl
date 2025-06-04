@@ -43,12 +43,59 @@ sub test_module_apk_management
 {
     print GREEN, "[*] Starting tests for Perl module: 'apk_management.pm':\n\n", RESET;
 
+    apkManagement::apk_help("");
+    apkManagement::apk_add("perl", "-s");
+    apkManagement::apk_del("perl", "-s");
+    apkManagement::apk_fix("perl", "-s");
+    apkManagement::apk_update("-U");
+    apkManagement::apk_upgrade("-U");
+    apkManagement::apk_cache("");
+    apkManagement::apk_info("");
+    apkManagement::apk_list("--installed");
+    apkManagement::apk_dot("perl");
+    apkManagement::apk_policy("perl");
+    apkManagement::apk_search("perl");
+    apkManagement::apk_index("--help");
+    apkManagement::apk_fetch("perl", "--simulate");
+    apkManagement::apk_manifest("perl");
+    apkManagement::apk_verify("");
+    apkManagement::apk_audit("--full");
+    apkManagement::apk_stats("");
+    apkManagement::apk_version("perl", "-I");
+
     print GREEN, "\n[*] End of tests.\n\n", RESET;
 }
 
 sub test_module_apt_management
 {
     print GREEN, "[*] Starting tests for Perl module: 'apt_management.pm':\n\n", RESET;
+    
+    aptManagement::apt_autoclean("--dry-run");
+    aptManagement::apt_autoremove("--dry-run");
+    aptManagement::apt_changelog("perl");
+    aptManagement::apt_depends("perl", "--conflicts");
+    aptManagement::apt_download("perl");
+    aptManagement::apt_full_upgrade("--simulate");
+    aptManagement::apt_install("perl", "--simulate");
+    aptManagement::apt_moo("moo");
+    aptManagement::apt_purge("perl", "--simulate");
+    aptManagement::apt_reinstall("perl", "--simulate");
+    aptManagement::apt_search("perl", "--names-only");
+    aptManagement::apt_showsrc("perl", "--only-source");
+    aptManagement::apt_update("--print-uris");
+    aptManagement::apt_autopurge("--simulate");
+    aptManagement::apt_build_dep("perl", "--simulate");
+    aptManagement::apt_clean("--dry-run");
+    aptManagement::apt_dist_upgrade("--simulate");
+    aptManagement::apt_edit_sources("");
+    aptManagement::apt_help("");
+    aptManagement::apt_list("--installed");
+    aptManagement::apt_policy("perl");
+    aptManagement::apt_rdepends("perl", "--depends");
+    aptManagement::apt_remove("perl", "--simulate");
+    aptManagement::apt_show("perl", "--all-versions");
+    aptManagement::apt_source("perl", "--simulate");
+    aptManagement::apt_upgrade("--simulate");
 
     print GREEN, "\n[*] End of tests.\n\n", RESET;
 }

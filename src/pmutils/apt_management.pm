@@ -119,7 +119,7 @@ sub apt_autopurge
     execute(@cmd);
 }
 
-sub build_dep
+sub apt_build_dep
 {
     my @args = @_;
     my @cmd = ("apt", "build-dep", @args);

@@ -55,7 +55,8 @@ our @SUPPORTED_INITS = (
     "s6",                    # <https://skarnet.org/software/s6/>
     "runit",                 # <https://smarden.org/runit/>
     "systemd",               # <https://systemd.io/>
-    "dinit"                  # <https://davmac.org/projects/dinit/>
+    "dinit",                 # <https://davmac.org/projects/dinit/>
+    "launchd"                # <https://support.apple.com/guide/terminal/script-management-with-launchd-apdc6c1077b-5d5d-4d35-9c19-60f2397b2369/mac>
 );
 
 sub clear_screen
