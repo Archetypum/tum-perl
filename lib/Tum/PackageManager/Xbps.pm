@@ -1,17 +1,4 @@
-#!/usr/bin/perl
-#
-# This file is part of tum-perl.
-# tum-perl is free software: you can redistribute it and/or modify it under the terms of
-# the GNU General Public License as published by the Free Software Foundation,
-# either version 3 of the License, or (at your option) any later version.
-#
-# tum-perl is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
-# without even the implied warranty of MERCHANTABILITY or
-# FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
-# more details.
-#
-# You should have received a copy of the GNU General Public License along with
-# tum-perl. If not, see <https://www.gnu.org/licenses/>. 
+#!perl
 
 package Tum::PackageManager::Xbps;
 
@@ -19,6 +6,17 @@ use strict;
 use warnings;
 
 use constant RED   => "\e[31m";
+use constant GREEN => "\e[0;32m";
 use constant RESET => "\e[0m";
+
+sub execute
+{
+    my @execution_target = @_;
+
+    print GREEN, "[<==] Executing '@execution_target'...\n", RESET;
+    system(@execution_target) == 0 or do { print RED, "[!] Error: Failed to execute: '@execution_target'.", RESET, "\n"; return 1; };
+    print GREEN, "[*] Success!\n", RESET;
+    return 0;
+}
 
 1;

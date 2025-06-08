@@ -8,15 +8,18 @@ my %WriteMakefileArgs = (
     AUTHOR           => q{Archetypum <archetypum@tutamail.com>},
     VERSION_FROM     => 'lib/Tum.pm',
     ABSTRACT_FROM    => 'lib/Tum.pm',
-    LICENSE          => 'lgpl_2_1',
+    LICENSE          => 'lgpl_3',
     MIN_PERL_VERSION => '5.006',
-    CONFIGURE_REQUIRES => {
+    CONFIGURE_REQUIRES =>
+    {
         'ExtUtils::MakeMaker' => '0',
     },
-    TEST_REQUIRES => {
+    TEST_REQUIRES =>
+    {
         'Test::More' => '0',
     },
-    PREREQ_PM => {
+    PREREQ_PM =>
+    {
         #'ABC'              => '1.6',
         #'Foo::Bar::Module' => '5.0401',
     },
@@ -25,12 +28,14 @@ my %WriteMakefileArgs = (
 );
 
 # Compatibility with old versions of ExtUtils::MakeMaker
-unless (eval { ExtUtils::MakeMaker->VERSION('6.64'); 1 }) {
+unless (eval { ExtUtils::MakeMaker->VERSION('6.64'); 1 })
+{
     my $test_requires = delete $WriteMakefileArgs{TEST_REQUIRES} || {};
     @{$WriteMakefileArgs{PREREQ_PM}}{keys %$test_requires} = values %$test_requires;
 }
 
-unless (eval { ExtUtils::MakeMaker->VERSION('6.55_03'); 1 }) {
+unless (eval { ExtUtils::MakeMaker->VERSION('6.55_03'); 1 })
+{
     my $build_requires = delete $WriteMakefileArgs{BUILD_REQUIRES} || {};
     @{$WriteMakefileArgs{PREREQ_PM}}{keys %$build_requires} = values %$build_requires;
 }
