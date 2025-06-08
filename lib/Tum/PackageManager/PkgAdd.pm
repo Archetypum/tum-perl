@@ -9,6 +9,41 @@ use constant RED   => "\e[31m";
 use constant GREEN => "\e[0;32m";
 use constant RESET => "\e[0m";
 
+sub pkg_add
+{
+    my @args = @_;
+    my @cmd = ("pkg_add", @args);
+    execute(@cmd);
+}
+
+sub pkg_add_help
+{
+    my @args = @_;
+    my @cmd = ("pkg_add", "-h", @args);
+    execute(@cmd);
+}
+
+sub pkg_add_version
+{
+    my @args = @_;
+    my @cmd = ("pkg_add", "-V", @args);
+    execute(@cmd);
+}
+
+sub pkg_info
+{
+    my @args = @_;
+    my @cmd = ("pkg_info", @args);
+    execute(@cmd);
+}
+
+sub pkg_delete
+{
+    my @args = @_;
+    my @cmd = ("pkg_delete", @args);
+    execute(@cmd);
+}
+
 sub execute
 {
     my @execution_target = @_;
