@@ -1,3 +1,5 @@
+#!perl
+
 package Tum;
 
 use 5.006;
@@ -14,18 +16,13 @@ Version 0.01
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = "0.1";
 
 
 =head1 SYNOPSIS
 
-Quick summary of what the module does.
-
-Perhaps a little code snippet.
-
     use Tum;
 
-    my $foo = Tum->new();
     ...
 
 =head1 EXPORT
@@ -102,4 +99,4 @@ This is free software, licensed under:
 
 =cut
 
-1; # End of Tum
+1;

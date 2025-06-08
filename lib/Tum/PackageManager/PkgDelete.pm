@@ -1,6 +1,6 @@
 #!perl
 
-package Tum::PackageManager::PkgAdd;
+package Tum::PackageManager::PkgDelete;
 
 use strict;
 use warnings;
@@ -9,10 +9,10 @@ use constant RED   => "\e[31m";
 use constant GREEN => "\e[0;32m";
 use constant RESET => "\e[0m";
 
-sub pkg_add
+sub pkg_delete
 {
     my @args = @_;
-    my @cmd = ("pkg_add", @args);
+    my @cmd = ("pkg_delete", @args);
     execute(@cmd);
 }
 

@@ -27,7 +27,7 @@ Tum::PackageManager::Apk - A simple wrapper for the apk package manager.
 
 This module provides a simple interface to interact with the apk package
 manager, providing Perl functions for common operations. It relies on the
-`apk` command-line tool being available in the system's PATH.
+`apk` tool being available in the system's PATH.
 
 =head1 FUNCTIONS
 
@@ -35,7 +35,7 @@ manager, providing Perl functions for common operations. It relies on the
 
     apk_help(@args);
 
-Executes `apk --help` with the provided arguments.  Displays help information.
+Executes `apk --help` with the provided arguments. Displays help information.
 
 =over 4
 
