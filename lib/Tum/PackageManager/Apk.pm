@@ -1,4 +1,4 @@
-#!perl
+#!/usr/bin/perl
 
 package Tum::PackageManager::Apk;
 
@@ -13,21 +13,26 @@ use constant RESET => "\e[0m";
 
 =head1 NAME
 
-Tum::PackageManager::Apk - A simple wrapper for the apk package manager.
+Tum::PackageManager::Apk - A simple wrapper for the `apk` package manager.
 
 =head1 SYNOPSIS
 
     use Tum::PackageManager::Apk;
 
     Tum::PackageManager::Apk::apk_update();
-    Tum::PackageManager::Apk::apk_add("package_name");
-    Tum::PackageManager::Apk::apk_del("package_name");
+    Tum::PackageManager::Apk::apk_add("perl");
+    Tum::PackageManager::Apk::apk_del("perl");
 
 =head1 DESCRIPTION
 
-This module provides a simple interface to interact with the apk package
+This module provides a simple interface to interact with the `apk` package
 manager, providing Perl functions for common operations. It relies on the
 `apk` tool being available in the system's PATH.
+
+`apk` is the Alpine Package Keeper - Alpine Linux package manager.
+It is used to manage the packages (software and otherwise) of the system.
+It is the primary method for installing additional software on Alpine Linux,
+and is available in the `apk-tools` package.
 
 =head1 FUNCTIONS
 
@@ -35,21 +40,11 @@ manager, providing Perl functions for common operations. It relies on the
 
     apk_help(@args);
 
-Executes `apk --help` with the provided arguments. Displays help information.
+Executes `apk --help` with the provided arguments.
+
+Displays help information.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apk --help` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apk::apk_help();>
 
 =back
 
@@ -57,21 +52,11 @@ A list of arguments to pass to the `apk --help` command.
 
     apk_add(@args);
 
-Executes `apk add` with the provided arguments.  Installs packages.
+Executes `apk add` with the provided arguments. 
+
+Add or modify constraints in WORLD and commit changes.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apk add` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apk::apk_add("package_name");>
 
 =back
 
@@ -79,21 +64,11 @@ A list of arguments to pass to the `apk add` command.
 
     apk_del(@args);
 
-Executes `apk del` with the provided arguments.  Removes packages.
+Executes `apk del` with the provided arguments.
+
+Remove constraints from WORLD and commit changes.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apk del` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apk::apk_del("package_name");>
 
 =back
 
@@ -101,21 +76,11 @@ A list of arguments to pass to the `apk del` command.
 
     apk_fix(@args);
 
-Executes `apk fix` with the provided arguments.  Fixes package dependencies.
+Executes `apk fix` with the provided arguments.
+
+Fix, reinstall or upgrade packages without modifying WORLD.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apk fix` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apk::apk_fix();>
 
 =back
 
@@ -123,21 +88,11 @@ A list of arguments to pass to the `apk fix` command.
 
     apk_update(@args);
 
-Executes `apk update` with the provided arguments.  Refreshes the package index.
+Executes `apk update` with the provided arguments.
+
+Update repository indexes.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apk update` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apk::apk_update();>
 
 =back
 
@@ -145,20 +100,11 @@ A list of arguments to pass to the `apk update` command.
 
     apk_upgrade(@args);
 
-Executes `apk upgrade` with the provided arguments.  Upgrades installed packages.
+Executes `apk upgrade` with the provided arguments.
+
+Install upgrades available from repositories.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apk upgrade` command.
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apk::apk_upgrade();>
 
 =back
 
@@ -166,21 +112,11 @@ A list of arguments to pass to the `apk upgrade` command.
 
     apk_cache(@args);
 
-Executes `apk cache` with the provided arguments.  Manages the apk cache.
+Executes `apk cache` with the provided arguments.
+
+Manage the local package cache.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apk cache` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apk::apk_cache();>
 
 =back
 
@@ -188,21 +124,11 @@ A list of arguments to pass to the `apk cache` command.
 
     apk_info(@args);
 
-Executes `apk info` with the provided arguments.  Displays package information.
+Executes `apk info` with the provided arguments.
+
+Give detailed information about packages or repositories.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apk info` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apk::apk_info("package_name");>
 
 =back
 
@@ -210,21 +136,11 @@ A list of arguments to pass to the `apk info` command.
 
     apk_list(@args);
 
-Executes `apk list` with the provided arguments.  Lists available packages.
+Executes `apk list` with the provided arguments.
+
+List packages matching a pattern or other criteria.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apk list` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apk::apk_list();>
 
 =back
 
@@ -232,21 +148,11 @@ A list of arguments to pass to the `apk list` command.
 
     apk_dot(@args);
 
-Executes `apk dot` with the provided arguments.  Generates a graph of package dependencies in DOT format.
+Executes `apk dot` with the provided arguments.
+
+Render dependencies as graphviz graphs.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apk dot` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apk::apk_dot();>
 
 =back
 
@@ -254,21 +160,11 @@ A list of arguments to pass to the `apk dot` command.
 
     apk_policy(@args);
 
-Executes `apk policy` with the provided arguments.  Displays the configured package repositories.
+Executes `apk policy` with the provided arguments.
+
+Show repository policy for packages.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apk policy` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apk::apk_policy();>
 
 =back
 
@@ -276,21 +172,11 @@ A list of arguments to pass to the `apk policy` command.
 
     apk_search(@args);
 
-Executes `apk search` with the provided arguments.  Searches for packages.
+Executes `apk search` with the provided arguments.
+
+Search for packages by name or description.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apk search` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apk::apk_search("package_name");>
 
 =back
 
@@ -298,21 +184,11 @@ A list of arguments to pass to the `apk search` command.
 
     apk_index(@args);
 
-Executes `apk index` with the provided arguments.  Creates a package index.
+Executes `apk index` with the provided arguments.
+
+Create repository index file from packages.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apk index` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apk::apk_index();>
 
 =back
 
@@ -320,21 +196,11 @@ A list of arguments to pass to the `apk index` command.
 
     apk_fetch(@args);
 
-Executes `apk fetch` with the provided arguments.  Downloads packages.
+Executes `apk fetch` with the provided arguments.
+
+Download packages from repositories to a local directory.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apk fetch` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apk::apk_fetch("package_name");>
 
 =back
 
@@ -342,21 +208,11 @@ A list of arguments to pass to the `apk fetch` command.
 
     apk_manifest(@args);
 
-Executes `apk manifest` with the provided arguments. Displays or creates a manifest file.
+Executes `apk manifest` with the provided arguments.
+
+Show checksums of package contents.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apk manifest` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apk::apk_manifest();>
 
 =back
 
@@ -364,21 +220,11 @@ A list of arguments to pass to the `apk manifest` command.
 
     apk_verify(@args);
 
-Executes `apk verify` with the provided arguments.  Verifies package integrity.
+Executes `apk verify` with the provided arguments.
+
+Verify package intergrity and signature.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apk verify` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apk::apk_verify("package_name");>
 
 =back
 
@@ -386,21 +232,11 @@ A list of arguments to pass to the `apk verify` command.
 
     apk_audit(@args);
 
-Executes `apk audit` with the provided arguments. Performs security auditing.
+Executes `apk audit` with the provided arguments.
+
+Audit system for changes.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apk audit` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apk::apk_audit();>
 
 =back
 
@@ -408,21 +244,13 @@ A list of arguments to pass to the `apk audit` command.
 
     apk_stats(@args);
 
-Executes `apk stats` with the provided arguments.  Displays statistics.
+Executes `apk stats` with the provided arguments.
+
+Show statistics about repositories and installations.
 
 =over 4
 
 =item Arguments:
-
-A list of arguments to pass to the `apk stats` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apk::apk_stats();>
 
 =back
 
@@ -430,48 +258,18 @@ A list of arguments to pass to the `apk stats` command.
 
     apk_version(@args);
 
-Executes `apk version` with the provided arguments.  Displays the version of a package.
+Executes `apk version` with the provided arguments.
+
+Compare package versions or perform tests on version strings.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apk version` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apk::apk_version("package_name");>
-
-=back
-
-=head2 execute
-
-    execute(@execution_target);
-
-Executes a system command. Prints the command being executed in green,
-and any error messages in red.
-
-=over 4
-
-=item Arguments:
-
-A list representing the command to execute.
-
-=item Returns:
-
-0 on success, 1 on failure.  Failure is determined by the return value
-of the system() call.
 
 =back
 
 =head1 DIAGNOSTICS
 
 The module will print error messages to STDERR if any of the apk
-commands fail.  The error messages will be colorized in red.
+commands fail. The error messages will be colorized in red.
 
 =head1 AUTHOR
 

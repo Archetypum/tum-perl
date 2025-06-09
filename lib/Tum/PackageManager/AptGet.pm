@@ -1,4 +1,4 @@
-#!perl
+#!/usr/bin/perl
 
 package Tum::PackageManager::AptGet;
 
@@ -13,7 +13,7 @@ use constant RESET => "\e[0m";
 
 =head1 NAME
 
-Tum::PackageManager::AptGet - A simple wrapper for the `apt-get`.
+Tum::PackageManager::AptGet - A simple wrapper for the `apt-get` package manager.
 
 =head1 SYNOPSIS
     

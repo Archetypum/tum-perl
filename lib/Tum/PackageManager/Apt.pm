@@ -1,3 +1,5 @@
+#!/usr/bin/perl
+
 package Tum::PackageManager::Apt;
 
 use strict;
@@ -11,7 +13,7 @@ use constant RESET => "\e[0m";
 
 =head1 NAME
 
-Tum::PackageManager::Apt - A simple wrapper for the apt package manager.
+Tum::PackageManager::Apt - A simple wrapper for the `apt` package manager.
 
 =head1 SYNOPSIS
 
@@ -32,22 +34,11 @@ manager, providing Perl functions for common operations.
 
     apt_autoclean(@args);
 
-Executes `apt autoclean` with the provided arguments. Removes old downloaded
-package files from the cache.
+Executes `apt autoclean` with the provided arguments.
+
+Cleans obsolete deb-packages.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apt autoclean` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apt::apt_autoclean();>
 
 =back
 
@@ -55,22 +46,13 @@ A list of arguments to pass to the `apt autoclean` command.
 
     apt_autoremove(@args);
 
-Executes `apt autoremove` with the provided arguments. Removes automatically
-all unused packages.
+Executes `apt autoremove` with the provided arguments.
+
+autoremove is used to remove packages that were automatically installed to satisfy dependencies
+for other packages and are now no longer needed as dependencies changed or the package needing them
+were removed in the meantime. 
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apt autoremove` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apt::apt_autoremove();>
 
 =back
 
@@ -78,22 +60,11 @@ A list of arguments to pass to the `apt autoremove` command.
 
     apt_changelog(@args);
 
-Executes `apt changelog` with the provided arguments. Fetches and displays
-the changelog for a package.
+Executes `apt changelog` with the provided arguments.
+
+Fetches and displays the changelog for a package.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apt changelog` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apt::apt_changelog("package_name");>
 
 =back
 
@@ -101,22 +72,11 @@ A list of arguments to pass to the `apt changelog` command.
 
     apt_depends(@args);
 
-Executes `apt depends` with the provided arguments. Shows dependency
-information for a package.
+Executes `apt depends` with the provided arguments.
+
+Shows dependency information for a package.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apt depends` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apt::apt_depends("package_name");>
 
 =back
 
@@ -124,21 +84,11 @@ A list of arguments to pass to the `apt depends` command.
 
     apt_download(@args);
 
-Executes `apt download` with the provided arguments.  Downloads the .deb
-package file.
+Executes `apt download` with the provided arguments.
+
+Downloads the .deb package file.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apt download` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-    C<Tum::PackageManager::Apt::apt_download("package_name");>
 
 =back
 
@@ -146,22 +96,11 @@ A list of arguments to pass to the `apt download` command.
 
     apt_full_upgrade(@args);
 
-Executes `apt full-upgrade` with the provided arguments. Performs an upgrade
-similar to `dist-upgrade` but may remove installed packages.
+Executes `apt full-upgrade` with the provided arguments.
+
+Performs an upgrade similar to `dist-upgrade` but may remove installed packages.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apt full-upgrade` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apt::apt_full_upgrade();>
 
 =back
 
@@ -169,7 +108,9 @@ A list of arguments to pass to the `apt full-upgrade` command.
 
     apt_install(@args);
 
-Executes `apt install` with the provided arguments.  Installs packages.
+Executes `apt install` with the provided arguments. 
+
+Installs packages.
 
 =over 4
 
@@ -177,35 +118,17 @@ Executes `apt install` with the provided arguments.  Installs packages.
 
 A list of arguments to pass to the `apt install` command.
 
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apt::apt_install("package_name");>
-
 =back
 
 =head2 apt_moo
 
     apt_moo(@args);
 
-Executes `apt moo` with the provided arguments.  A fun command.
+Executes `apt moo` with the provided arguments.
+
+Have you mooed today?
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apt moo` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apt::apt_moo();>
 
 =back
 
@@ -213,22 +136,11 @@ A list of arguments to pass to the `apt moo` command.
 
     apt_purge(@args);
 
-Executes `apt purge` with the provided arguments.  Removes packages and their
-configuration files.
+Executes `apt purge` with the provided arguments.
+
+Removes packages and their configuration files.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apt purge` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apt::apt_purge("package_name");>
 
 =back
 
@@ -236,21 +148,11 @@ A list of arguments to pass to the `apt purge` command.
 
     apt_reinstall(@args);
 
-Executes `apt reinstall` with the provided arguments.  Reinstalls a package.
+Executes `apt reinstall` with the provided arguments.
+
+Reinstalls a package.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apt reinstall` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apt::apt_reinstall("package_name");>
 
 =back
 
@@ -258,21 +160,13 @@ A list of arguments to pass to the `apt reinstall` command.
 
     apt_search(@args);
 
-Executes `apt search` with the provided arguments.  Searches for packages.
+Executes `apt search` with the provided arguments.
+
+Searches for packages.
 
 =over 4
 
 =item Arguments:
-
-A list of arguments to pass to the `apt search` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apt::apt_search("package_name");>
 
 =back
 
@@ -280,22 +174,11 @@ A list of arguments to pass to the `apt search` command.
 
     apt_showsrc(@args);
 
-Executes `apt showsrc` with the provided arguments.  Displays source package
-records.
+Executes `apt showsrc` with the provided arguments. 
+
+Shows source of the package. 
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apt showsrc` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apt::apt_showsrc("package_name");>
 
 =back
 
@@ -303,21 +186,11 @@ A list of arguments to pass to the `apt showsrc` command.
 
     apt_update(@args);
 
-Executes `apt update` with the provided arguments.  Refreshes the package lists.
+Executes `apt update` with the provided arguments.
+
+Refreshes the package lists.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apt update` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apt::apt_update();>
 
 =back
 
@@ -325,22 +198,11 @@ A list of arguments to pass to the `apt update` command.
 
     apt_autopurge(@args);
 
-Executes `apt autopurge` with the provided arguments.  Removes automatically
-all unused packages, including their configuration files.
+Executes `apt autopurge` with the provided arguments.
+
+Removes automatically all unused packages, including their configuration files.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apt autopurge` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apt::apt_autopurge();>
 
 =back
 
@@ -348,21 +210,11 @@ A list of arguments to pass to the `apt autopurge` command.
 
     apt_build_dep(@args);
 
-Executes `apt build-dep` with the provided arguments.  Satisfy build
-dependencies for a source package.
+Executes `apt build-dep` with the provided arguments.
+
+Satisfy build dependencies for a source package.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apt build-dep` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-=item Example:
-
-    C<Tum::PackageManager::Apt::apt_build_dep("package_name");>
 
 =back
 
@@ -370,8 +222,9 @@ A list of arguments to pass to the `apt build-dep` command.
 
     apt_clean(@args);
 
-Executes `apt clean` with the provided arguments.  Erase downloaded archive
-files.
+Executes `apt clean` with the provided arguments.
+
+Erase downloaded archive files.
 
 =over 4
 
@@ -379,36 +232,17 @@ files.
 
 A list of arguments to pass to the `apt clean` command.
 
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apt::apt_clean();>
-
 =back
 
 =head2 apt_dist_upgrade
 
     apt_dist_upgrade(@args);
 
-Executes `apt dist-upgrade` with the provided arguments.  Performs an upgrade,
-possibly installing or removing packages.
+Executes `apt dist-upgrade` with the provided arguments.
+
+Performs an upgrade, possibly installing or removing packages.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apt dist-upgrade` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apt::apt_dist_upgrade();>
 
 =back
 
@@ -416,22 +250,11 @@ A list of arguments to pass to the `apt dist-upgrade` command.
 
     apt_edit_sources(@args);
 
-Executes `apt edit-sources` with the provided arguments.  Edits the source
-list(s).
+Executes `apt edit-sources` with the provided arguments.
+
+Edits the source list.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apt edit-sources` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apt::apt_edit_sources();>
 
 =back
 
@@ -439,21 +262,11 @@ A list of arguments to pass to the `apt edit-sources` command.
 
     apt_help(@args);
 
-Executes `apt help` with the provided arguments.  Displays help information.
+Executes `apt help` with the provided arguments.
+
+Displays help information.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apt help` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apt::apt_help();>
 
 =back
 
@@ -461,22 +274,11 @@ A list of arguments to pass to the `apt help` command.
 
     apt_list(@args);
 
-Executes `apt list` with the provided arguments.  List packages based on name
-and version.
+Executes `apt list` with the provided arguments.
+
+List packages based.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apt list` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apt::apt_list();>
 
 =back
 
@@ -484,21 +286,11 @@ A list of arguments to pass to the `apt list` command.
 
     apt_policy(@args);
 
-Executes `apt policy` with the provided arguments.  Show policy settings.
+Executes `apt policy` with the provided arguments.
+
+Show policy.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apt policy` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apt::apt_policy();>
 
 =back
 
@@ -506,22 +298,11 @@ A list of arguments to pass to the `apt policy` command.
 
     apt_rdepends(@args);
 
-Executes `apt rdepends` with the provided arguments.  Show reverse dependency
-information for a package.
+Executes `apt rdepends` with the provided arguments.
+
+Show reverse dependency information for a package.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apt rdepends` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apt::apt_rdepends("package_name");>
 
 =back
 
@@ -529,21 +310,11 @@ A list of arguments to pass to the `apt rdepends` command.
 
     apt_remove(@args);
 
-Executes `apt remove` with the provided arguments.  Removes packages.
+Executes `apt remove` with the provided arguments.
+
+Removes packages.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apt remove` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apt::apt_remove("package_name");>
 
 =back
 
@@ -551,21 +322,11 @@ A list of arguments to pass to the `apt remove` command.
 
     apt_show(@args);
 
-Executes `apt show` with the provided arguments.  Show package records.
+Executes `apt show` with the provided arguments.
+
+Show package records.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apt show` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apt::apt_show("package_name");>
 
 =back
 
@@ -573,21 +334,11 @@ A list of arguments to pass to the `apt show` command.
 
     apt_source(@args);
 
-Executes `apt source` with the provided arguments.  Download source packages.
+Executes `apt source` with the provided arguments.
+
+Download source packages.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apt source` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apt::apt_source("package_name");>
 
 =back
 
@@ -595,42 +346,11 @@ A list of arguments to pass to the `apt source` command.
 
     apt_upgrade(@args);
 
-Executes `apt upgrade` with the provided arguments.  Performs an upgrade without
-installing or removing packages.
+Executes `apt upgrade` with the provided arguments. 
+
+Performs an upgrade without installing or removing packages.
 
 =over 4
-
-=item Arguments:
-
-A list of arguments to pass to the `apt upgrade` command.
-
-=item Returns:
-
-0 on success, 1 on failure.  See L</execute> for details.
-
-=item Example:
-
-    C<Tum::PackageManager::Apt::apt_upgrade();>
-
-=back
-
-=head2 execute
-
-    execute(@execution_target);
-
-Executes a system command. Prints the command being executed in green,
-and any error messages in red.
-
-=over 4
-
-=item Arguments:
-
-A list representing the command to execute.
-
-=item Returns:
-
-0 on success, 1 on failure.  Failure is determined by the return value
-of the system() call.
 
 =back
 

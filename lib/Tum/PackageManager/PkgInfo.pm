@@ -1,4 +1,4 @@
-#!perl
+#!/usr/bin/perl
 
 package Tum::PackageManager::PkgInfo;
 
@@ -17,7 +17,7 @@ Tum::PackageManager::PkgInfo - A simple wrapper for the `pkg_info`.
 
 =head1 SYNOPSIS
     
-    use Tum::PackageManager::PkgInfo
+    use Tum::PackageManager::PkgInfo;
 
     Tum::PackageManager::PkgInfo::pkg_info("-u", "-v");
     Tum::PackageManager::PkgInfo::pkg_info("-E", "perl");

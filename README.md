@@ -31,13 +31,15 @@ echo "idk ???r"
 
 ...
 
-## Supported Package Managers (20)
+## Supported Package Managers (21)
 
 - **apt**
 
 - **apt-get**
 
 - **apt-cache**
+
+- **apt-cdrom**
 
 - **aptitude**
 

@@ -1,4 +1,4 @@
-#!perl
+#!/usr/bin/perl
 
 package Tum::PackageManager::AptCache;
 
@@ -13,11 +13,11 @@ use constant RESET => "\e[0m";
 
 =head1 NAME
 
-Tum::PackageManager::PkgInfo - A simple wrapper for the `apt-cache`.
+Tum::PackageManager::PkgInfo - A simple wrapper for the `apt-cache` package manager.
 
 =head1 SYNOPSIS
     
-    use Tum::PackageManager::AptCache
+    use Tum::PackageManager::AptCache;
 
     Tum::PackageManager::AptCache::apt_cache_gencaches("--quiet");
     Tum::PackageManager::AptCache::apt_cache_search("perl");
