@@ -28,6 +28,10 @@ This module provides a simple interface to interact with `pkg_info`,
 providing Perl functions for common operations. It relies on the `pkg_info`
 tool being available in the system's PATH.
 
+The `pkg_info` command is used to dump out information for packages, which
+may be either packed up in files or already installed on the system with
+the pkg_create(1) command.
+
 =head1 FUNCTIONS
 
 =head2 pkg_info

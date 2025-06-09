@@ -12,12 +12,11 @@ Tum - The great new Tum!
 
 =head1 VERSION
 
-Version 0.01
+Version 0.1-testing
 
 =cut
 
 our $VERSION = "0.1";
-
 
 =head1 SYNOPSIS
 
@@ -56,15 +55,11 @@ Please report any bugs or feature requests to C<bug-tum at rt.cpan.org>, or thro
 the web interface at L<https://rt.cpan.org/NoAuth/ReportBug.html?Queue=Tum>.  I will be notified, and then you'll
 automatically be notified of progress on your bug as I make changes.
 
-
-
-
 =head1 SUPPORT
 
 You can find documentation for this module with the perldoc command.
 
     perldoc Tum
-
 
 You can also look for information at:
 
@@ -84,18 +79,25 @@ L<https://metacpan.org/release/Tum>
 
 =back
 
+=head1 AUTHOR
 
-=head1 ACKNOWLEDGEMENTS
+Archetypum <archetypum@tutamail.com>
 
+=head1 COPYRIGHT AND LICENSE
 
-=head1 LICENSE AND COPYRIGHT
+Copyright (C) 2025 Archetypum
 
-This software is Copyright (c) 2025 by Archetypum.
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License as published by the
+Free Software Foundation, either version 3 of the License, or any later version.
 
-This is free software, licensed under:
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
+for more details.
 
-  The GNU Lesser General Public License, Version 2.1, February 1999
-
+You should have received a copy of the GNU Lesser General Public License along
+with this program. If not, see L<https://www.gnu.org/licenses/>.
 
 =cut
 
