@@ -21,11 +21,11 @@ cpan install Tum
 
 Building from source:
 
-``sh
+```sh
 git clone https://github.com/Archetypum/tum-perl.git
 cd tum-perl
 echo "idk ???r"
-``
+```
 
 ## Supported Operating Systems (too many)
 
