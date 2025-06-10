@@ -31,7 +31,7 @@ echo "idk ???r"
 
 ...
 
-## Supported Package Managers (21)
+## Supported Package Management utilites (31)
 
 - **apt**
 
@@ -41,7 +41,21 @@ echo "idk ???r"
 
 - **apt-cdrom**
 
+- **apt-config**
+
+- **apt-extracttemplates**
+
+- **apt-listchanges**
+
+- **apt-mark**
+
+- **apt-sortpkgs**
+
 - **aptitude**
+
+- **aptitude-create-state-bundle**
+
+- **aptitude-run-state-bundle**
 
 - **apk**
 
@@ -57,11 +71,19 @@ echo "idk ???r"
 
 - **pkg_add**
 
-- **pkg_info**
-
 - **pkg_delete**
 
+- **pkg_create**
+
+- **pkg_info**
+
 - **pacman**
+
+- **yay**
+
+- **trizen**
+
+- **pamac**
 
 - **portage**
 
@@ -90,6 +112,16 @@ echo "idk ???r"
 - **dinit**
 
 - **launchd**
+
+## Documentation
+
+```sh
+perldoc lib/Tum.pm
+
+perldoc lib/Tum/PackageManager/Apt.pm
+
+perldoc lib/Tum/InitSystem/SysVinit.pm
+```
 
 ## Other implementations by Archetypum
 

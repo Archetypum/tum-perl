@@ -204,29 +204,9 @@ repository needed by package managing software.
 
 =back
 
-=head2 execute
-
-    execute(@execution_target);
-
-Executes a system command. Prints the command being executed in green,
-and any error messages in red.
-
-=over 4
-
-=item Arguments:
-
-A list representing the command to execute.
-
-=item Returns:
-
-0 on success, 1 on failure.  Failure is determined by the return value
-of the system() call.
-
-=back
-
 =head1 DIAGNOSTICS
 
-The module will print error messages to STDERR if any of the apk
+The module will print error messages to STDERR if any of the `pkg_info`
 commands fail. The error messages will be colorized in red.
 
 =head1 AUTHOR
