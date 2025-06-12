@@ -11,7 +11,7 @@ use constant RESET => "\e[0m";
 
 =head1 NAME
 
-Tum::PackageManager::Pacman - A simple wrapper for the pacman package manager.
+Tum::PackageManager::Pacman - A simple wrapper for the `pacman` package manager.
 
 =head1 SYNOPSIS
 

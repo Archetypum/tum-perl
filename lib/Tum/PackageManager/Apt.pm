@@ -577,7 +577,5 @@ sub execute
     return 0;
 }
 
-apt_update();
-
 1;
 
