@@ -1,7 +1,9 @@
 # tum-perl
 
 _tum (TheUnixManager)_ is an ultimate package management and initialization system handling library made by **Archetypum**
-to simplify interaction with various UNIX-like systems and creation of system-related Perl scripts.
+to simplify interaction with various UNIX-like systems and creation of system-related scripts.
+
+This time, its written in Perl.
 
 ...
 
@@ -31,7 +33,7 @@ echo "idk ???r"
 
 ...
 
-## Supported Package Management utilites (31)
+## Supported Package Management utilites (32)
 
 - **apt**
 
@@ -114,6 +116,8 @@ echo "idk ???r"
 - **launchd**
 
 ## Documentation
+
+You can check _tum-perl_ documentation via **perldoc** utility:
 
 ```sh
 perldoc lib/Tum.pm
