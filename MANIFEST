@@ -34,6 +34,7 @@ lib/Tum/PackageManager/AptitudeRunStateBundle.pm
 lib/Tum/PackageManager/Dnf.pm
 lib/Tum/PackageManager/Dpkg.pm
 lib/Tum/PackageManager/Guix.pm
+lib/Tum/PackageManager/HomeBrew.pm
 lib/Tum/PackageManager/Pacman.pm
 lib/Tum/PackageManager/Yay.pm
 lib/Tum/PackageManager/Trizen.pm

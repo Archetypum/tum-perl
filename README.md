@@ -68,6 +68,8 @@ echo "idk ???r"
 
 - **guix**
 
+- **homebrew**
+
 - **pkg**
 
 - **pkgin**
