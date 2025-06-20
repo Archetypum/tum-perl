@@ -31,6 +31,7 @@ our @SUPPORTED_PMS = (
     "dnf",                          # <https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html-single/managing_software_with_the_dnf_tool/index>
     "dpkg",                         # <https://wiki.debian.org/dpkg>
     "guix",                         # <https://guix.gnu.org/manual/en/html_node/Package-Management.html>
+    "homebrew",                     # <https://brew.sh/>
     "pkg",                          # <https://man.freebsd.org/cgi/man.cgi?pkg>
     "pkgin",                        # <https://pkgin.net/>
     "pkg_add",                      # <https://man.openbsd.org/pkg_add>
@@ -47,6 +48,7 @@ our @SUPPORTED_PMS = (
     "xbps",                         # <https://docs.voidlinux.org/xbps/index.html>
     "yum",                          # <https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/6/html/deployment_guide/ch-yum>
     "zypper"                        # <https://documentation.suse.com/smart/systems-management/html/concept-zypper/index.html>
+    "zypper-log"                    # <https://manpages.opensuse.org/Tumbleweed/zypper-log/zypper-log.8.en.html>
 );
 
 our @SUPPORTED_INITS = (
@@ -418,6 +420,85 @@ sub macos_based
     
     return 1;
 
+}
+
+sub get_user_distro
+{
+    my $os_release = "/etc/os-release";
+    my $distro = "";
+
+    if (-f $os_release)
+    {
+        open my $fh, '<', $os_release or die "[!] Error: Can't open $os_release: $!";
+        while (<$fh>)
+        {
+            if (/^ID=(.+)/)
+            {
+                $distro = $1;
+                $distro =~ s/^"|"$//g;
+                last;
+            }
+        }
+        close $fh;
+
+        if ($distro)
+        {
+            return $distro;
+        }
+    }
+
+    print RED, "[!] Error: Cannot detect distribution from `/etc/os-release`.", RESET;
+    print "[==>] Write your OS name yourself: ";
+    chomp($distro = <STDIN>);
+    
+    return $distro;
+}
+
+sub get_init_system
+{
+    if (-d "/run/systemd/system" || get_pid1_comm() eq "systemd") {
+        return "systemd";
+    }
+
+    if (-d "/etc/init.d" && -d "/etc/init.d/openrc")
+    {
+        return "openrc";
+    }
+
+    if (-d "/etc/init.d")
+    {
+        return "sysvinit";
+    }
+
+    if (-d "/etc/s6")
+    {
+        return "s6";
+    }
+
+    if (-d "/etc/runit")
+    {
+        return "runit";
+    }
+
+    if (get_pid1_comm() eq "dinit")
+    {
+        return "dinit";
+    }
+
+    if (get_pid1_comm() eq "launchd")
+    {
+        return "launchd";
+    }
+
+    return "unknown";
+}
+
+sub get_pid1_comm
+{
+    my $comm = "ps -p 1 -o comm= 2>/dev/null";
+    chomp($comm);
+    
+    return $comm;
 }
 
 sub clear_screen

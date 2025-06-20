@@ -6,13 +6,9 @@ to simplify interaction with various UNIX-like systems and creation of system-re
 
 This time, its written in Perl.
 
-...
-
-...
-
 ## Why?
 
-...
+I'm are too lazy to write why this can be helpful. Trust me bro
 
 ## Installation
 
@@ -37,10 +33,6 @@ make
 make test
 make install
 ```
-
-## Supported Operating Systems (too many)
-
-...
 
 ## Supported Package Management utilites (33)
 
