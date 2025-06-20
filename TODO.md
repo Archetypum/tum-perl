@@ -5,13 +5,13 @@
     - **Solaris/OpenSolaris/OpenIndiana** (ServiceManagementFacility, pkg);
     - **TinyCoreLinux** (unknown yet).
 
-2) Finish ALL package managers && init systems classes.
+2) Finish ALL package managers && init systems modules.
 
 3) Finish markdown documents:
     - **AUTHORS.md**;
     - **README.md**.
 
-4) Add this motherfucking piece of shit to the **CPAN**.
+4) Add this distribution to the **CPAN**.
 
 5) Add **dinit** support.
 

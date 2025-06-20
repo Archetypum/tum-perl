@@ -50,6 +50,7 @@ lib/Tum/PackageManager/Slackpkg.pm
 lib/Tum/PackageManager/Xbps.pm
 lib/Tum/PackageManager/Yum.pm
 lib/Tum/PackageManager/Zypper.pm
+lib/Tum/PackageManager/ZypperLog.pm
 
 t/00-load.t
 t/manifest.t

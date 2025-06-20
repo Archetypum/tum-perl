@@ -1,4 +1,5 @@
 # tum-perl
+![theUnixManagerEdited](https://github.com/user-attachments/assets/6c0b3fbc-1d09-4d35-9dde-33b22a468c45)
 
 _tum (TheUnixManager)_ is an ultimate package management and initialization system handling library made by **Archetypum**
 to simplify interaction with various UNIX-like systems and creation of system-related scripts.
@@ -33,7 +34,7 @@ echo "idk ???r"
 
 ...
 
-## Supported Package Management utilites (32)
+## Supported Package Management utilites (33)
 
 - **apt**
 
@@ -98,6 +99,8 @@ echo "idk ???r"
 - **yum**
 
 - **zypper**
+
+- **zypper-log**
 
 ## Supported Initialization Systems (7)
 
