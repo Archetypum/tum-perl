@@ -18,16 +18,26 @@ This time, its written in Perl.
 
 CPAN:
 
+(IN FUTURE) You can install Tum via CPAN:
+
 ```sh
-cpan install Tum
+cpan install Tum  # NOT IMPLEMENTED YET.
 ```
 
-Building from source:
+or obtain the source...
 
 ```sh
 git clone https://github.com/Archetypum/tum-perl.git
 cd tum-perl
-echo "idk ???r"
+```
+
+...and build it yourself!
+
+```sh
+perl Makefile.PL
+make
+make test
+make install
 ```
 
 ## Supported Operating Systems (too many)

@@ -2,6 +2,8 @@
 
 package Tum;
 
+# ABSTRACT: Great new Tum...
+
 use 5.006;
 use strict;
 use warnings;
