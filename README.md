@@ -16,8 +16,6 @@ This time, its written in Perl.
 
 ## Installation
 
-CPAN:
-
 (IN FUTURE) You can install Tum via CPAN:
 
 ```sh
