@@ -8,20 +8,20 @@ but just enough to get started.
 Happy building cross-platform UNIX software, happy hacking.
 
 ```text
-      61 text files.
-      59 unique files.                              
+      64 text files.
+      62 unique files.                              
        3 files ignored.
 
-github.com/AlDanial/cloc v 2.04  T=0.03 s (2152.3 files/s, 269323.5 lines/s)
+github.com/AlDanial/cloc v 2.04  T=0.03 s (2040.8 files/s, 275674.7 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-Perl                            48           1852           1204           3791
-Markdown                         9            206              0            298
-YAML                             1              0              0             20
+Perl                            48           1990           1204           4593
+Markdown                        11            219              0            336
+YAML                             2              0              0             21
 INI                              1              1              0             11
 -------------------------------------------------------------------------------
-SUM:                            59           2059           1204           4120
+SUM:                            62           2210           1204           4961
 -------------------------------------------------------------------------------
 ```
 

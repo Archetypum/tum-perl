@@ -13,6 +13,104 @@ use constant RESET => "\e[0m";
 
 =cut
 
+sub slackpkg
+{
+    my @args = @_;
+    my @cmd = ("slackpkg", @args);
+    execute(@cmd);
+}
+
+sub slackpkg_search
+{
+    my @args = @_;
+    my @cmd = ("slackpkg", "search", @args);
+    execute(@cmd);
+}
+
+sub slackpkg_install
+{
+    my @args = @_;
+    my @cmd = ("slackpkg", "install", @args);
+    execute(@cmd);
+}
+
+sub slackpkg_upgrade
+{
+    my @args = @_;
+    my @cmd = ("slackpkg", "upgrade", @args);
+    execute(@cmd);
+}
+
+sub slackpkg_reinstall
+{
+    my @args = @_;
+    my @cmd = ("slackpkg", "reinstall", @args);
+    execute(@cmd);
+}
+
+sub slackpkg_remove
+{
+    my @args = @_;
+    my @cmd = ("slackpkg", "remove", @args);
+    execute(@cmd);
+}
+
+sub slackpkg_blacklist
+{
+    my @args = @_;
+    my @cmd = ("slackpkg", "blacklist", @args);
+    execute(@cmd);
+}
+
+sub slackpkg_download
+{
+    my @args = @_;
+    my @cmd = ("slackpkg", "download", @args);
+    execute(@cmd);
+}
+
+sub slackpkg_info
+{
+    my @args = @_;
+    my @cmd = ("slackpkg", "info", @args);
+    execute(@cmd);
+}
+
+sub slackpkg_clean_system
+{
+    my @args = @_;
+    my @cmd = ("slackpkg", "clean-system", @args);
+    execute(@cmd);
+}
+
+sub slackpkg_upgrade_all
+{
+    my @args = @_;
+    my @cmd = ("slackpkg", "upgrade-all", @args);
+    execute(@cmd);
+}
+
+sub slackpkg_install_new
+{
+    my @args = @_;
+    my @cmd = ("slackpkg", "install-new", @args);
+    execute(@cmd);
+}
+
+sub slackpkg_check_updates
+{
+    my @args = @_;
+    my @cmd = ("slackpkg", "check-updates", @args);
+    execute(@cmd);
+}
+
+sub slackpkg_update
+{
+    my @args = @_;
+    my @cmd = ("slackpkg", "update", @args);
+    execute(@cmd);
+}
+
 sub execute
 {
     my @execution_target = @_;
