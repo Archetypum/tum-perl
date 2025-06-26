@@ -192,11 +192,11 @@ sub is_debian_based
     {
         if ($distro eq $base_distro)
         {
-            return 0;
+            return 1;
         }
     }
     
-    return 1;
+    return 0;
 }
 
 sub is_arch_based
@@ -209,11 +209,11 @@ sub is_arch_based
     {
         if ($distro eq $base_distro)
         {
-            return 0;
+            return 1;
         }
     }
     
-    return 1;
+    return 0;
 }
 
 sub is_alpine_based
@@ -226,11 +226,11 @@ sub is_alpine_based
     {
         if ($distro eq $base_distro)
         {
-            return 0;
+            return 1;
         }
     }
     
-    return 1;
+    return 0;
 }
 
 sub is_gentoo_based
@@ -260,11 +260,11 @@ sub is_void_based
     {
     	if ($distro eq $base_distro)
     	{
-    		return 0;
+    		return 1;
     	}
     }
     
-    return 1;
+    return 0;
 }
 
 sub is_dragora_based
@@ -277,11 +277,11 @@ sub is_dragora_based
     {
     	if ($distro eq $base_distro)
     	{
-    		return 0;
+    		return 1;
     	}
     }
     
-    return 1;
+    return 0;
 }
 
 sub is_slackware_based
@@ -294,11 +294,11 @@ sub is_slackware_based
     {
     	if ($distro eq $base_distro)
     	{
-    		return 0;
+    		return 1;
     	}
     }
     
-    return 1;
+    return 0;
 }
 
 sub is_redhat_based
@@ -311,11 +311,11 @@ sub is_redhat_based
     {
     	if ($distro eq $base_distro)
     	{
-    		return 0;
+    		return 1;
     	}
     }
     
-    return 1;
+    return 0;
 }
 
 sub is_guix_based
@@ -328,11 +328,11 @@ sub is_guix_based
     {
     	if ($distro eq $base_distro)
     	{
-    		return 0;
+    		return 1;
     	}
     }
     
-    return 1;
+    return 0;
 }
 
 sub is_freebsd_based
@@ -345,11 +345,11 @@ sub is_freebsd_based
     {
     	if ($distro eq $base_distro)
     	{
-    		return 0;
+    		return 1;
     	}
     }
     
-    return 1;
+    return 0;
 }
 
 sub is_openbsd_based
@@ -362,11 +362,11 @@ sub is_openbsd_based
     {
     	if ($distro eq $base_distro)
     	{
-    		return 0;
+    		return 1;
     	}
     }
     
-    return 1;
+    return 0;
 }
 
 sub is_netbsd_based
@@ -379,11 +379,11 @@ sub is_netbsd_based
     {
     	if ($distro eq $base_distro)
     	{
-    		return 0;
+    		return 1;
     	}
     }
     
-    return 1;
+    return 0;
 }
 
 sub is_solaris_illumos_based
@@ -396,11 +396,11 @@ sub is_solaris_illumos_based
     {
     	if ($distro eq $base_distro)
     	{
-    		return 0;
+    		return 1;
     	}
     }
     
-    return 1;
+    return 0;
 
 }
 
@@ -414,11 +414,11 @@ sub macos_based
     {
     	if ($distro eq $base_distro)
     	{
-    		return 0;
+    		return 1;
     	}
     }
     
-    return 1;
+    return 0;
 
 }
 
@@ -429,7 +429,7 @@ sub get_user_distro
 
     if (-f $os_release)
     {
-        open my $fh, '<', $os_release or die "[!] Error: Can't open $os_release: $!";
+        open my $fh, "<", $os_release or die "[!] Error: Can't open $os_release: $!";
         while (<$fh>)
         {
             if (/^ID=(.+)/)
@@ -456,7 +456,8 @@ sub get_user_distro
 
 sub get_init_system
 {
-    if (-d "/run/systemd/system" || get_pid1_comm() eq "systemd") {
+    if (-d "/run/systemd/system" || get_pid1_comm() eq "systemd")
+    {
         return "systemd";
     }
 
@@ -511,7 +512,7 @@ sub clear_screen
 sub prompt_user
 {
     my ($prompt, $default) = @_;
-    $default ||= 'N';
+    $default ||= "N";
 
     print "$prompt (y/n): ";
     chomp(my $user_input = <STDIN>);
@@ -522,14 +523,14 @@ sub prompt_user
     
     if ($user_input =~ /^(y|ye|yes)$/)
     {
-        return 0;
+        return 1;
     } 
     elsif ($user_input =~ /^(n|no)$/)
     {
-        return 1;
+        return 0;
     }
 
-    return 1;
+    return 0;
 }
 
 sub check_privileges

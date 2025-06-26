@@ -1,19 +1,13 @@
 # TODO list:
 
-1) Add package manager, init system, and distributions list for:
-    - **macOS** (HomeBrew, launchd);
-    - **Solaris/OpenSolaris/OpenIndiana** (ServiceManagementFacility, pkg);
-    - **TinyCoreLinux** (unknown yet).
+1) Add this distribution to the **CPAN**.
 
-2) Finish ALL package managers && init systems modules.
+2) Add **dinit**, **launchd**, **s6**, **openrc**, **runit** support.
 
-3) Finish markdown documents:
-    - **AUTHORS.md**;
-    - **README.md**.
+3) Add **dpkg**, **xbps**, **portage**, **homebrew** support.
 
-4) Add this distribution to the **CPAN**.
+4) Add more POD documentation.
 
-5) Add **dinit** support.
+5) Make tests.
 
-6) Add more documentation.
-
+6) Debug...

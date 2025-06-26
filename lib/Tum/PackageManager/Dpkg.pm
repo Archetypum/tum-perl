@@ -13,14 +13,21 @@ use constant RESET => "\e[0m";
 
 =cut
 
+sub dpkg
+{
+    my @args = @_;
+    my @cmd = ("dpkg", @args);
+    execute(@cmd);
+}
+
 sub execute
 {
     my @execution_target = @_;
 
     print GREEN, "[<==] Executing '@execution_target'...\n", RESET;
-    system(@execution_target) == 0 or do { print RED, "[!] Error: Failed to execute: '@execution_target'.", RESET, "\n"; return 1; };
+    system(@execution_target) == 0 or do { print RED, "[!] Error: Failed to execute: '@execution_target'.", RESET, "\n"; return 0; };
     print GREEN, "[*] Success!\n", RESET;
-    return 0;
+    return 1;
 }
 
 1;

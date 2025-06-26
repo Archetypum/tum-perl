@@ -43,10 +43,10 @@ sub _run_systemctl
     if ($@)
     {
         print RED, "[!] Error: $@", RESET;
-        return 1;
+        return 0;
     }
 
-    return 0;
+    return 1;
 }
 
 my @actions = qw(
@@ -92,7 +92,7 @@ sub execute
     else
     {
         print RED, "[!] Error: Unknown command: $self->{command}\n", RESET;
-        return 1;
+        return 0;
     }
 }
 

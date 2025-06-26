@@ -49,10 +49,10 @@ sub _run_service
     if ($@)
     {
         print RED, "[!] Error: $@", RESET, "\n";
-        return 1;
+        return 0;
     }
 
-    return 0;
+    return 1;
 }
 
 sub start_service        { shift->_run_service("start") }
@@ -76,10 +76,10 @@ sub status_all_service
     if ($@)
     {
         print RED, "[!] Error: $@", RESET, "\n";
-        return 1;
+        return 0;
     }
 
-    return 0;
+    return 1;
 }
 
 sub full_restart_service
@@ -89,7 +89,7 @@ sub full_restart_service
     unless ($self->{service})
     {
         print RED, "[!] Error: --full-restart requires a service name.\n", RESET;
-        return 1;
+        return 0;
     }
 
     my $exit_code;
@@ -104,10 +104,10 @@ sub full_restart_service
     if ($@)
     {
         print RED, "[!] Error: $@", RESET, "\n";
-        return 1;
+        return 0;
     }
 
-    return 0;
+    return 1;
 }
 
 sub execute
@@ -140,7 +140,7 @@ sub execute
     else
     {
         print RED, "[!] Error: Unknown command: $self->{command}\n", RESET;
-        return 1;
+        return 0;
     }
 }
 

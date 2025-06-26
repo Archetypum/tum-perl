@@ -3,3 +3,5 @@ _tum-perl_ is a project by **Archetypum** with:
  (https://github.com/Kinderfeld)
  - **WretchOfLights** as the documentation writer.
  (https://github.com/WretchOfLights)
+ - **wazups** as the illustrator.
+ (https://github.com/wazups)
