@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-package Tum::PackageManager::Xbps;
+package Tum::PackageManager::XbpsInstall;
 
 use strict;
 use warnings;
@@ -12,6 +12,13 @@ use constant RESET => "\e[0m";
 =pod
 
 =cut
+
+sub xbps_install
+{
+    my @args = @_;
+    my @cmd = ("xbps-install", @args);
+    execute(@cmd);
+}
 
 sub execute
 {

@@ -49,7 +49,9 @@ lib/Tum/PackageManager/Portage.pm
 lib/Tum/PackageManager/Qi.pm
 lib/Tum/PackageManager/Slackpkg.pm
 lib/Tum/PackageManager/Trizen.pm
-lib/Tum/PackageManager/Xbps.pm
+lib/Tum/PackageManager/XbpsInstall.pm
+lib/Tum/PackageManager/XbpsRemove.pm
+lib/Tum/PackageManager/XbpsQuery.pm
 lib/Tum/PackageManager/Yay.pm
 lib/Tum/PackageManager/Yum.pm
 lib/Tum/PackageManager/Zypper.pm

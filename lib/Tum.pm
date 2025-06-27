@@ -8,6 +8,9 @@ use 5.006;
 use strict;
 use warnings;
 
+use constant RED   => "\e[31m";
+use constant RESET => "\e[0m";
+
 =pod
 
 =head1 Tum
@@ -87,7 +90,7 @@ our @SUPPORTED_PMS = (
     "slackpkg",                     # <https://slackpkg.org/documentation.html>
     "xbps",                         # <https://docs.voidlinux.org/xbps/index.html>
     "yum",                          # <https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/6/html/deployment_guide/ch-yum>
-    "zypper"                        # <https://documentation.suse.com/smart/systems-management/html/concept-zypper/index.html>
+    "zypper",                       # <https://documentation.suse.com/smart/systems-management/html/concept-zypper/index.html>
     "zypper-log"                    # <https://manpages.opensuse.org/Tumbleweed/zypper-log/zypper-log.8.en.html>
 );
 
@@ -120,7 +123,21 @@ our @DEBIAN_BASED = (
     "osmc", "pibang", "sparky", "exe", "semplice", "venenux", "descentos", "martiux", "turnkey", "privatix", "estrellaroja", "untangle",
     "blankon", "webconverger", "swecha", "myrinix", "thisk", "64studio", "gnewsense", "gparted", "pardus", "genieos", "2x", "taprobane",
     "paipix", "amber", "beatrix", "santafe", "userlinux", "sunwah", "erposs", "munjoy", "smartpeer", "euronode", "kalango", "overclockix",
-    "danix", "aslinux", "sphinxos", "condorux", "indilinux"
+    "danix", "aslinux", "sphinxos", "condorux", "indilinux", "morphix", "clusterix", "mockup", "nepalinux", "slotech", "gnustep", "freeducsup",
+    "adamantix", "trx", "freeduc", "slix", "pequelin", "quantian", "shabdix", "defender", "phlak", "std", "zopix", "clusterknoppix", "beernix",
+    "eduknoppix", "roslims", "knoppix64", "slynux", "kaella", "knosciences", "beafanatix", "snappix", "ogoknoppix", "penguinsleuth", "augustux",
+    "julex", "vmknoppix", "insert", "evinux", "xarnoppix", "llgp", "pilot", "slavix", "linespa", "klustrix", "knoppixmame", "bioknoppix", "knopils",
+    "las", "feather", "livux", "featherweight", "lamppix", "damnsmall", "biadix", "hikarunix", "luit", "arabbix", "youresale", "xandros", "bayanihan",
+    "caixamagica", "squiggleos", "miko", "guadalinex", "max", "xfld", "helix", "gnix", "esun", "xevian", "voyager", "ozos", "lliurex", "edubuntu",
+    "impi", "nubuntu", "fluxbuntu", "ufficiozero", "swift", "vast", "commodore", "ubuntuce", "tuquito", "kiwi", "gos", "ultimate", "symphony",
+    "earos", "runtu", "abuledu", "baltix", "debris", "moonos", "caine", "superos", "mangaka", "cae", "monomaxos", "zentyal", "masonux", "asturix",
+    "element", "gnacktrack", "xpud", "vinux", "okatux", "dreamstudio", "pear", "luniux", "bodhi", "hybryde", "iqunix", "ubuntudp", "ubuntukylin",
+    "makulu", "lite", "linuxfx", "peachosi", "emmabuntus", "cub", "auroraos", "suriyan", "bella", "chaletos", "ubuntumate", "kxstudio", "salentos",
+    "centrych", "chitwanix", "ubuntugnome", "ozunity", "redo", "biolinux", "leeenux", "superx", "snowlinux", "arios", "pinguy", "madbox", "ubuntupr",
+    "jolios", "wattos", "nexentastor", "deft", "kuki", "remnux", "lxle", "karoshi", "ubunturescue", "easypeasy", "nova", "qimo", "zevenos", "progex",
+    "bardlinux", "extix", "ulite", "maryan", "greenie", "opengeu", "sabily", "protech", "comfusion", "ubuntustudio", "artistx", "shift", "freespire",
+    "arabian", "poseidon", "alinex", "gnoppix", "openlx", "dynebolic", "molinux", "apodio", "biglinux", "tilix", "imagicos", "pioneer", "ichthux",
+    "klikit", "tupiserver", "geolivre", "dizinha", "ankur", "linuxlte", "esware", "progeny", "liis", "muriqui", "loco"
 );
 
 our @ARCH_BASED = (
@@ -168,16 +185,27 @@ our @SLACKWARE_BASED = (
     # The Slackware Linux Project.
     # <http://www.slackware.com/>
 
-    "slackware", "salixos", "simplelinux", "basiclinux", "frugalware", "austrumi", "hostgis", "kateos", "mulinux", "porteus", "absolutelinux",
-    "nimblex", "platypux", "slackintosh", "slax", "supergamer", "topologilinux", "vectorlinux", "wolvix", "zenwalk", "zipslack", "slackopuppy",
-    "slackel", "wifislax", "plamolinux", "slamd64"
+    "slackware", "root", "evilentity", "blin", "stux", "jolinux", "netwosix", "connochaet", "salix", "ultima", "slackintosh", "slamd64", "easys",
+    "topologilinux", "truva", "draco", "slackel", "cdlinux", "kongoni", "sms", "linvo", "rubix", "drinou", "bearops", "rip", "livecdrouter",
+    "porteus", "austrumi", "wifislax", "absolute", "bluewhite64". "howtux", "pqui", "voltalinux". "slampp", "zenwalk", "zencafe", "imagineos",
+    "darkstar", "openlab", "runt", "buffalo", "mutagenix", "klax", "lg3d", "nimblex", "dvl", "arudius", "alixe", "parslinux", "wolvix", "tumix",
+    "saxenos", "nonux", "tumix", "whoppix", "freepia", "slax", "supergamer", "vector", "plamo", "sentryfirewall"
 );
 
 our @REDHAT_BASED = (
     # Red Hat is the leading provider of enterprise open source software solutions.
     # <https://www.redhat.com/>
 
-    "rhel", "fedora", "mos", "rocky", "centos", "opensuse", "almalinux", "oraclelinux", "circlelinux", "clearos", "euleros", "nobara"
+    "rhel", "fedora", "mos", "rocky", "centos", "almalinux", "oraclelinux", "circlelinux", "clearos", "euleros", "nobara", "yellowdog", "bulinux",
+    "elastix", "digantel", "nethserver", "baruwa", "stella", "asterisknow", "trixbox", "honeywall", "rockscluster", "smeserver", "tao", "niigata",
+    "kondara", "laster5", "wow", "immunix", "startcom", "whitebox", "endian", "userful", "springdale", "holon", "superrescue", "lineox", "fermi",
+    "scientific", "piebox", "wazobia", "tinysofa", "xos", "oeone", "planb", "voodoo", "medialab", "msc", "miracle", "hispafuentes", "mizi", "bluepoint",
+    "redflag", "asianux", "cle", "linpus", "sot", "gelecek", "engarde", "thiz", "nuxone", "idms", "cool", "magic", "aurora", "lorma", "sulix", "ftosx",
+    "hakin9", "opendesktop", "pingo", "freedows", "resala", "linare", "ingalum", "berry", "linuxxp", "atmission", "atomix", "nst", "ekaaty", "elpicx",
+    "ezey", "korora", "olpc", "qubes", "bee", "fox", "dynasoft", "cpubuilders", "chapeau", "pidora", "hanthana", "fusion", "vortexbox", "ojuba", "mythdora",
+    "asianlinux", "edulinux", "sci", "krud", "kore", "cobind", "happymac", "mylinux", "onet", "haansoft", "ezplanet", "rpmlive", "ares", "biobrew", "blag",
+    "openna", "adios", "annyung", "linuxinstall", "phpsol", "aurox", "linuxplus", "jamd", "elx", "openwall", "k12linux", "asp", "tfm", "tinysofa", "merdeka",
+    "trustix", "wibni", "hancom", "xteam"
 );
 
 our @OPENSUSE_BASED = (
@@ -455,7 +483,6 @@ sub is_solaris_illumos_based
     }
     
     return 0;
-
 }
 
 sub macos_based
@@ -473,7 +500,6 @@ sub macos_based
     }
     
     return 0;
-
 }
 
 sub get_user_distro
@@ -501,7 +527,7 @@ sub get_user_distro
         }
     }
 
-    print RED, "[!] Error: Cannot detect distribution from `/etc/os-release`.", RESET;
+    print RED, "[!] Error: Cannot detect distribution from'/etc/os-release.", RESET;
     print "[==>] Write your OS name yourself: ";
     chomp($distro = <STDIN>);
     
@@ -598,7 +624,7 @@ sub check_privileges
     } 
     else 
     {
-        print RED, "[!] Error: This script requires root privileges to work.", RESET, "\n";
+        print RED, "[!] Error: This script requires root privileges to work.", RESET;
         exit 1;
     }
 }
