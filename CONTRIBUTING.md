@@ -24,7 +24,11 @@ GNU/Linux, BSD
 
 Please consider next rules of writing if you want to help tum-perl:
 
-- TODO: write rules of writing
+- TODO: understand our rules of writing Perl.
+
+- Do not use other CPAN modules in your code unless you really need them.
+
+- Don't forget about POD!
 
 ## Pull Requests
 

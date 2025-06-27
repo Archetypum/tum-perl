@@ -10,6 +10,46 @@ use warnings;
 
 =pod
 
+=head1 Tum
+
+Tum - ...
+
+=head1 SYNOPSIS
+
+    use Tum;
+
+    ...
+    
+=head1 DESCRIPTION
+
+...
+
+...
+
+=head1 FUNCTIONS
+
+...
+
+=head1 AUTHOR
+
+Archetypum <archetypum@tutamail.com>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright (C) 2025 Archetypum
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License as published by the
+Free Software Foundation, either version 3 of the License, or any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
+for more details.
+
+You should have received a copy of the GNU Lesser General Public License along
+with this program. If not, see L<https://www.gnu.org/licenses/>.
+
 =cut
 
 our $VERSION = "0.1";
@@ -67,10 +107,20 @@ our @DEBIAN_BASED = (
     
     "debian", "ubuntu", "xubuntu", "linuxmint", "lmde", "trisquel", "devuan", "kali", "parrotos", "popos", "elementaryos",
     "mx", "antix", "crunchbag", "crunchbag++", "pureos", "deepin", "zorinos", "peppermintos", "lubuntu", "kubuntu", "wubuntu",
-    "astra", "tailsos", "ututos", "ulteo", "aptosid", "canaima", "corel", "dreamlinux", "elive", "finnix", "gibraltar",
-    "gnulinex", "kanotix", "kurumin", "linspire", "maemo", "mepis", "vyatta", "solusos", "openzaurus", "cutefishos", "knoppix",
+    "astra", "tails", "ututos", "ulteo", "aptosid", "canaima", "corel", "dreamlinux", "elive", "finnix", "gibraltar",
+    "linex", "kanotix", "kurumin", "linspire", "maemo", "mepis", "vyatta", "solusos", "openzaurus", "cutefishos", "knoppix",
     "siduction", "psychos", "neptune", "doglinux", "armbian", "droidian", "mobian", "grml", "backbox", "blacklablinux", "mmabuntus",
-    "galliumos", "linuxschools", "linuxliteos", "mythbuntu", "solydxk", "uberstudent", "q4os"
+    "galliumos", "linuxschools", "linuxliteos", "mythbuntu", "solydxk", "uberstudent", "q4os", "demolinux", "libranet", "omoikane",
+    "eagle", "college", "blackrhino", "luinux", "bonzai", "oralux", "demudi", "brlspeak", "censornet", "bluewall", "antemium",
+    "knoppel", "skolelinux", "natures", "debxpde", "catix", "brlix", "parsix", "b2d", "troppix", "ging", "zonecd", "archeos",
+    "insigne", "dzongkha", "boss", "resulinux", "epidemic", "clonezilla", "inquisitor", "musix", "satux", "pelicanhpc", "minino",
+    "avlinux", "tangostudio", "doudou", "saline", "rebellin", "rescatux", "forlex", "proxmox", "wmlive", "point", "tanglu",
+    "openmediavault", "vyos", "steamos", "metamorphose", "robolinux", "whonix", "storm", "linuxin", "kinneret", "wienux", "olive",
+    "hymera", "spezzos", "primtux", "rebeccablackos", "uninvention", "handy", "selks", "linuxbbq", "kwheezy", "volumio", "raspbian",
+    "osmc", "pibang", "sparky", "exe", "semplice", "venenux", "descentos", "martiux", "turnkey", "privatix", "estrellaroja", "untangle",
+    "blankon", "webconverger", "swecha", "myrinix", "thisk", "64studio", "gnewsense", "gparted", "pardus", "genieos", "2x", "taprobane",
+    "paipix", "amber", "beatrix", "santafe", "userlinux", "sunwah", "erposs", "munjoy", "smartpeer", "euronode", "kalango", "overclockix",
+    "danix", "aslinux", "sphinxos", "condorux", "indilinux"
 );
 
 our @ARCH_BASED = (
@@ -79,7 +129,8 @@ our @ARCH_BASED = (
 
     "arch", "artix", "manjaro", "endeavouros", "garuda", "parabola", "hyperbola", "archbang", "blackarch", "librewolf", "archlabs",
     "chakra", "archex", "archman", "arco", "bluestar", "chimeraos", "instantos", "kaos", "rebornos", "archhurd", "cyberos", "archcraft",
-    "cachyos", "ctlos", "crystallinux", "msys2", "obarun", "parchlinux", "snal" , "steamos3", "tearchlinux", "uboslinux" 
+    "cachyos", "ctlos", "crystallinux", "msys2", "obarun", "parchlinux", "snal" , "steamos3", "tearchlinux", "uboslinux", "linhes", "underground",
+    "kdemar", "archie", "faunos", "firefly", "linuxgamers", "kahelos", "netrunner", "ctkarch", "bridge", "sonar", "poliarch", "antergos"
 );
 
 our @ALPINE_BASED = (
@@ -93,9 +144,10 @@ our @GENTOO_BASED = (
     # Welcome to Gentoo, a highly flexible, source-based Linux distribution.
     # <https://www.gentoo.org/>
     
-    "gentoo", "argent", "pentoo", "funtoo", "calculatelinux", "chromeosflex", "vidalinux", "knopperdisk", "gentoox", "sabayon", "chromiumos",
-    "tinhatlinux", "ututo", "exgent", "flatcarlinux", "gentooplayer", "decibel". "liguros", "macaronilinux", "moccacinoos", "xenialinux", "redcorelinux",
-    "porteusklosk"
+    "gentoo", "argent", "pentoo", "funtoo", "calculate", "chromeosflex", "vidalinux", "knopperdisk", "gentoox", "sabayon", "chromiumos",
+    "tinhatlinux", "ututo", "exgent", "flatcarlinux", "gentooplayer", "decibel". "liguros", "macaronilinux", "moccacinoos", "xenialinux",
+    "redcorelinux", "porteuskiosk", "navynos", "ututo", "redwall", "papug", "toorox", "librete", "coreos", "shark", "zerahstar", "ibox",
+    "gentooth", "mayix", "bicom", "bintoo", "phaeronix", "flash", "vlos", "systemrescue", "litrix", "iollix"
 );
 
 our @VOID_BASED = (
@@ -132,7 +184,7 @@ our @OPENSUSE_BASED = (
     # The makers' choice for sysadmins, developers and desktop users.
     # <https://www.opensuse.org/>
 
-    "opensuse", "suse", "geckolinux", "linuxkamarada"
+    "opensuse", "suse", "geckolinux", "linuxkamarada", "united", "kmlinux", "sunjds", "urix", "sle", "karamad", "jacklab", "stresslinux"
 );
 
 our @GUIX_BASED = (
@@ -147,15 +199,16 @@ our @FREEBSD_BASED = (
     # <https://www.freebsd.org/>
 
     "freebsd", "midnightbsd", "ghostbsd", "bastillebsd", "cheribsd", "dragonflybsd", "trueos", "hardenedbsd", "hellosystem", "picobsd", "nanobsd",
-    "truenas", "nomadbsd", "clonos", "junosos", "xigmanas", "opnsense", "pfsense", "cellos", "orbisos", "zrouter", "ulbsd", "ravynos", "freenas", "fireflybsd"
+    "truenas", "nomadbsd", "clonos", "junosos", "xigmanas", "opnsense", "pfsense", "cellos", "orbisos", "zrouter", "ulbsd", "ravynos", "freenas",
+    "fireflybsd", "freesbie", "desktopbsd", "frenzy", "rofreesbie", "ging", "triance", "gulicbsd", "monowall", "pcbsd", "nas4free", "bsdrp" 
 );
 
 our @OPENBSD_BASED = (
     # Only two remote holes in the default install, in a heck of a long time!
     # <https://www.openbsd.org/>
     
-    "openbsd", "adj", "libertybsd", "bitrig", "bowlfish", "ekkobsd", "embsd", "fabbsd", "fugulta", "marbsd", "microbsd", "commixwall", "bsdanywhere",
-    "mirosbsd", "olivebsd", "psygnat", "quetzal", "sonafr", "hyperbolabsd", "aeriebsd", "anonymos", "utmfw", "fabbsd" 
+    "openbsd", "adj", "libertybsd", "bitrig", "bowlfish", "ekkobsd", "embsd", "fabbsd", "fuguita", "marbsd", "microbsd", "commixwall", "bsdanywhere",
+    "miros", "olivebsd", "psygnat", "quetzal", "sonafr", "hyperbolabsd", "aeriebsd", "anonymos", "utmfw", "fabbsd", "gnobsd" 
 );
 
 our @NETBSD_BASED = (
@@ -172,7 +225,8 @@ our @SOLARIS_ILLUMOS_BASED = (
     # Unix OS which provides next-generation features for downstream distros, including advanced system debugging, next generation filesystem, networking, and virtualization options. 
     # <https://www.illumos.org/>
 
-    "solaris", "illumos", "opensolaris", "openindiana", "omnios", "tribblix"
+    "solaris", "illumos", "opensolaris", "openindiana", "omnios", "tribblix", "smartos", "nexenta", "belenix", "milax", "nexentasor", "schillix",
+    "xstreamos"
 );
 
 our @MACOS_BASED = (
