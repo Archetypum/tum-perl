@@ -4,7 +4,7 @@
 
 1) Add this distribution to the **CPAN**.
 
-2) Add **dinit**, **launchd**, ~~**s6**~~, **openrc**, **runit** init support.
+2) Add **dinit**, **launchd**, ~~**s6**~~, ~~**openrc**~~, **runit** init support.
 
 3) Add ~~**dpkg**~~, **xbps**, **portage**, ~~**homebrew**~~, ~~**slackpkg**~~ pm support.
 

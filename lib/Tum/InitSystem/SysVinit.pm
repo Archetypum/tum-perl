@@ -8,6 +8,10 @@ use warnings;
 use constant RED   => "\e[31m";
 use constant RESET => "\e[0m";
 
+=pod
+
+=cut
+
 sub new
 {
     my ($class, $command, $service) = @_;

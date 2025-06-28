@@ -1,108 +1,96 @@
 # tum-perl
-![theUnixManagerEdited](https://github.com/user-attachments/assets/6c0b3fbc-1d09-4d35-9dde-33b22a468c45)
 
-_tum (TheUnixManager)_ is an ultimate package management and initialization system handling library made by **Archetypum**
-to simplify interaction with various UNIX-like systems and creation of system-related scripts.
+![TheUnixManager](https://github.com/user-attachments/assets/6c0b3fbc-1d09-4d35-9dde-33b22a468c45)
 
-This time, its written in Perl.
+**Tum (TheUnixManager)** is a universal package management and initialization system library created by **Archetypum**, designed to simplify interaction with various UNIX-like systems and streamline the creation of system-related scripts.
+
+This is the Perl implementation of Tum.
+
+---
 
 ## Why?
 
-I'm are too lazy to write why this can be helpful. Trust me bro
+Because interacting with countless package managers and init systems across UNIX-like platforms is painful — `tum` fixes that.
+
+---
 
 ## Installation
 
-(IN FUTURE) You can install Tum via CPAN:
+### Via CPAN (coming soon)
 
 ```sh
-cpan install Tum  # NOT IMPLEMENTED YET.
+cpan install Tum  # Coming soon!
 ```
 
-or obtain the source...
+### Manual Build
 
 ```sh
 git clone https://github.com/Archetypum/tum-perl.git
 cd tum-perl
-```
 
-...and build it yourself!
-
-```sh
 perl Makefile.PL
 make
 make test
 make install
 ```
 
-## Supported Package Management utilites (33)
+## Supported Package Management Utilities (36)
 
-- **apt**
+### Debian-based:
 
-- **apt-get**
+- **apt**, **apt-get**, **apt-cache**, **apt-cdrom**, **apt-config**, **apt-extracttemplates**, **apt-listchanges**, **apt-mark**, **apt-sortpkgs**, **aptitude**, **aptitude-create-state-bundle**, **aptitude-run-state-bundle**, **dpkg**
 
-- **apt-cache**
+### Arch-based:
 
-- **apt-cdrom**
+- **pacman**, **yay**, **trizen**, **pamac**
 
-- **apt-config**
-
-- **apt-extracttemplates**
-
-- **apt-listchanges**
-
-- **apt-mark**
-
-- **apt-sortpkgs**
-
-- **aptitude**
-
-- **aptitude-create-state-bundle**
-
-- **aptitude-run-state-bundle**
-
-- **apk**
-
-- **dnf**
-
-- **dpkg**
-
-- **guix**
-
-- **homebrew**
-
-- **pkg**
-
-- **pkgin**
-
-- **pkg_add**
-
-- **pkg_delete**
-
-- **pkg_create**
-
-- **pkg_info**
-
-- **pacman**
-
-- **yay**
-
-- **trizen**
-
-- **pamac**
+### Gentoo-based:
 
 - **portage**
 
-- **qi**
+### Slackware-based:
 
 - **slackpkg**
 
-- **xbps**
+### Alpine-based:
 
-- **yum**
+- **apk**
 
-- **zypper**
+### Void-based:
 
-- **zypper-log**
+- **xbps-install**, **xbps-remove**, **xbps-query**
+
+### Guix-based:
+
+- **guix**
+
+### Dragora-based:
+
+- **qi**
+
+### OpenBSD/NetBSD-based/FreeBSD-based:
+
+- **pkg_add**, **pkg_delete**, **pkg_create**, **pkg_info**
+
+### FreeBSD-based:
+
+- **pkg**
+
+### NetBSD-based:
+
+- **pkgin**
+
+### RedHat-based:
+
+- **yum**, **dnf**
+
+### openSUSE-based:
+
+- **zypper**, **zypper-log**
+
+### macOS-based:
+
+- **homebrew**
 
 ## Supported Initialization Systems (7)
 
@@ -122,7 +110,7 @@ make install
 
 ## Documentation
 
-You can check _tum-perl_ documentation via **perldoc** utility:
+You can view the module documentation using **perldoc**:
 
 ```sh
 perldoc lib/Tum.pm
@@ -132,27 +120,39 @@ perldoc lib/Tum/PackageManager/Apt.pm
 perldoc lib/Tum/InitSystem/SysVinit.pm
 ```
 
-## Other implementations by Archetypum
+## Example Usage
 
-Written in Python: [_tum-python_](https://github.com/Archetypum/tum-python)
+```perl
+#!/usr/bin/perl
 
-Written in Bash: [_tum-bash_](https://github.com/Archetypum/tum-bash)
+use Tum::InitSystem::OpenRC;
 
-Written in Raku: [_tum-raku_](https://github.com/Archetypum/tum-raku)
+my $svc = Tum::InitSystem::OpenRC->new("restart", "sshd");
+$svc->execute;
+```
 
-Written in C: [_tum-c_](https://github.com/Archetypum/tum-c)
+## Other Implementations by Archetypum
 
-Written in Rust: [_tum-rust_](https://github.com/Archetypum/tum-rust)
+- [_tum-python_](https://github.com/Archetypum/tum-python)
+
+- [_tum-bash_](https://github.com/Archetypum/tum-bash)
+
+- [_tum-raku_](https://github.com/Archetypum/tum-raku)
+
+- [_tum-c_](https://github.com/Archetypum/tum-c)
+
+- [_tum-rust_](https://github.com/Archetypum/tum-rust)
 
 ## Legal
 
-_tum-perl_ is free software: you can redistribute it and/or modify it under the terms of the
-**GNU Lesser General Public License v3** as published by the _Free Software Foundation_.
+**tum-perl** is free software, released under the **GNU Lesser General Public License v3**.
 
-More information in:
+See:
 
-- _LICENSE-LGPLv3.md_
-- _https://www.fsf.org_
-- _https://www.gnu.org_
+- [_LICENSE-LGPLv3.md_](https://github.com/Archetypum/tum-perl/blob/master/LICENSE-LGPLv3.md)
+
+- _https://www.gnu.org/licenses/lgpl-3.0.html_
+
+- [_Free Software Foundation_](https://www.fsf.org/)
 
 ![gnu](https://github.com/user-attachments/assets/66935a97-374f-4dbc-9f1c-428070fda139)
