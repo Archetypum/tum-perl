@@ -68,7 +68,7 @@ make install
 
 - **qi**
 
-### OpenBSD/NetBSD-based/FreeBSD-based:
+### OpenBSD/NetBSD/FreeBSD-based:
 
 - **pkg_add**, **pkg_delete**, **pkg_create**, **pkg_info**
 
