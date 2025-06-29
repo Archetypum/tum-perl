@@ -9,6 +9,8 @@ use constant RED   => "\e[31m";
 use constant GREEN => "\e[0;32m";
 use constant RESET => "\e[0m";
 
+=pod
+
 =head1 NAME
 
 Tum::PackageManager::Pacman - A simple wrapper for the `pacman` package manager.

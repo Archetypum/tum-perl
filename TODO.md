@@ -20,7 +20,7 @@
 
 2) Consider adding **pkg_admin**, **pkgtool**, **nix** pm support someday.
 
-3) Consider adding **GNU Shepherd**, **smf (service management facility)** init support someday.
+3) Consider adding **GNU Shepherd**, **smf (service management facility)**, **upstart** init support someday.
 
 4) Consider adding **Haiku**, **Minix** os support someday.
 
