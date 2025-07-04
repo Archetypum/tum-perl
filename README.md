@@ -162,7 +162,7 @@ $svc->execute;
 
 ### Package Management
 
-```
+```perl
 #!/usr/bin/perl
 
 use Tum::PackageManager::Apt;
