@@ -12,15 +12,60 @@ use constant RESET => "\e[0m";
 
 =head1 NAME
 
-...
-    
+Tum::InitSystem::Launchd - Perl interface to interact with the launchd service manager on macOS.
+
+=head1 SYNOPSIS
+
+    use Tum::InitSystem::Launchd;
+
+    my $launchd = Tum::InitSystem::Launchd->new("load", ["/Library/LaunchDaemons/com.example.daemon.plist"]);
+
+    if ($launchd->execute)
+    {
+        print "Service loaded successfully\n";
+    }
+    else
+    {
+        print "Failed to load service\n";
+    }
+
 =head1 DESCRIPTION
 
-...
+This module provides a programmatic Perl interface for managing services on macOS using the
+C<launchctl> command, the user-facing utility for interacting with the launchd service manager.
 
-=head1 FUNCTIONS
+It supports common launchctl subcommands and wraps them in object-oriented methods
+for convenient use in scripts or CLI tools.
 
-...
+=head1 METHODS
+
+=head2 new($command, $args)
+
+Constructs a new C<Tum::InitSystem::Launchd> object.
+
+=over 4
+
+=item * C<$command>: A string with a launchctl command (e.g., 'load', 'start', 'unload', etc.).
+
+=item * C<$args>: Optional. Either a string or an array reference of arguments passed to the command.
+
+=back
+
+=head2 execute()
+
+Executes the command that was passed during object construction.
+Returns true on success and false on failure.
+
+=head1 SUPPORTED COMMANDS
+
+bootstrap, bootout, enable, disable, uncache, kickstart, attach, debug, kill,
+blame, print, print-cache, print-disabled, plist, procinfo, hostinfo, resolveport,
+examine, reboot, error, variant, version, load, unload, submit, remove,
+start, stop, list, setenv, unsetenv, getenv, export, limit, bsexec, asuser,
+managerpid, manageruid, managername, help
+
+Each of these commands can be passed to the constructor, or called as an OO method
+(e.g., `$obj->load`).
 
 =head1 AUTHOR
 
@@ -49,26 +94,35 @@ sub new
     my ($class, $command, $args) = @_;
     die RED . "[!] Error: Command is required.\n" . RESET unless defined $command;
 
+    $args = [] unless defined $args;
+    $args = [$args] unless ref $args eq "ARRAY";
+
     my $self = {
         command => $command,
-        args => $args // "",
+        args    => $args,
     };
 
     bless $self, $class;
-
     return $self;
 }
 
 sub _run_launchctl
 {
     my ($self, $action) = @_;
+    my @cmd = ("launchctl", $action, @{ $self->{args} });
+
     my $exit_code;
 
     eval
     {
-        $exit_code = system("launchctl", $action, $self->{args});
+        $exit_code = system(@cmd);
+        if ($exit_code == -1)
+        {
+            die RED . "[!] Failed to execute launchctl: $!\n" . RESET;
+        }
+
         $exit_code = $exit_code >> 8;
-        die RED . "[!] 'launchctl $action $self->{args}' failed with exit code $exit_code\n" . RESET if $exit_code != 0;
+        die RED . "[!] 'launchctl @cmd' failed with exit code $exit_code\n" . RESET if $exit_code != 0;
     };
 
     if ($@)
@@ -97,21 +151,11 @@ for my $action (@actions)
 sub execute
 {
     my $self = shift;
+    (my $method_name = $self->{command}) =~ s/-/_/g;
 
-    my %commands = map 
+    if ($self->can($method_name))
     {
-        my $method = $_;
-        $method => sub 
-        {
-            my $method_name = $method;
-            $method_name =~ s/-/_/g;
-            return $self->$method_name;
-        }
-    } @actions;
-
-    if (exists $commands{ $self->{command} })
-    {
-        return $commands{ $self->{command} }->();
+        return $self->$method_name;
     }
     else
     {

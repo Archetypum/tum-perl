@@ -7,6 +7,23 @@ package Tum;
 use 5.006;
 use strict;
 use warnings;
+use Exporter "import";
+
+our @EXPORT_OK = qw(
+    RED RESET
+    is_debian_based is_arch_based is_alpine_based is_gentoo_based is_void_based
+    is_dragora_based is_slackware_based is_redhat_based is_guix_based is_freebsd_based
+    is_openbsd_based is_netbsd_based is_solaris_illumos_based macos_based
+    get_user_distro get_init_system get_pid1_comm clear_screen prompt_user check_privileges
+    @SUPPORTED_PMS @SUPPORTED_INITS
+    @DEBIAN_BASED @ARCH_BASED @ALPINE_BASED @GENTOO_BASED @VOID_BASED @DRAGORA_BASED
+    @SLACKWARE_BASED @REDHAT_BASED @OPENSUSE_BASED @GUIX_BASED @FREEBSD_BASED @OPENBSD_BASED
+    @NETBSD_BASED @SOLARIS_ILLUMOS_BASED @MACOS_BASED
+);
+
+our %EXPORT_TAGS = (
+    all => [@EXPORT_OK],
+);
 
 use constant RED   => "\e[31m";
 use constant RESET => "\e[0m";
@@ -15,23 +32,83 @@ use constant RESET => "\e[0m";
 
 =head1 Tum
 
-Tum - ...
+Tum (TheUnixManager) - Detect UNIX distributions and init systems with ease.
 
 =head1 SYNOPSIS
 
-    use Tum;
+    use Tum qw(
+        get_user_distro
+        is_debian_based
+        is_arch_based
+        get_init_system
+        clear_screen
+        prompt_user
+        check_privileges
+        RED RESET
+    );
 
-    ...
+    my $distro = get_user_distro();
+
+    if (is_debian_based($distro, @DEBIAN_BASED))
+    {
+        print "You are using a Debian-based distro.\n";
+    }
+
+    my $init = get_init_system();
+    print "Init system: $init\n";
     
 =head1 DESCRIPTION
 
-...
+The Tum module provides utilities to detect the UNIX distribution
+name, identify which family (Debian-based, Arch-based, etc.) the distribution
+belongs to, and determine the init system (sysvinit, openrc, systemd) in use.
 
-...
+It also includes handy terminal color constants and common utility functions
+for command-line scripts, such as prompting users and checking root privileges.
 
-=head1 FUNCTIONS
+=head1 EXPORTABLE FUNCTIONS AND VARIABLES
 
-...
+=over 4
+
+=item * get_user_distro()
+
+Reads /etc/os-release (if available) to detect the current GNU/Linux distribution ID.
+
+=item * is_debian_based($distro, @debian_list), is_arch_based($distro, @arch_list), etc.
+
+Functions to check if a given distro string matches a known list of base distributions.
+
+=item * get_init_system()
+
+Returns the detected init system string, such as "systemd", "openrc", "sysvinit", etc.
+
+=item * get_pid1_comm()
+
+Returns the command name of process ID 1.
+
+=item * clear_screen()
+
+Clears the terminal screen.
+
+=item * prompt_user($prompt, $default)
+
+Prompts the user with a yes/no question. Returns 1 for yes, 0 for no.
+
+=item * check_privileges()
+
+Exits the program with an error if not run as root.
+
+=item * Color constants:
+
+RED, RESET - terminal color codes for red text and resetting formatting.
+
+=item * Arrays
+
+@SUPPORTED_PMS, @SUPPORTED_INITS, @DEBIAN_BASED, @ARCH_BASED, etc.
+
+Lists of supported package managers, init systems, and distribution names.
+
+=back
 
 =head1 AUTHOR
 
@@ -325,11 +402,11 @@ sub is_gentoo_based
     {
     	if ($distro eq $base_distro)
     	{
-    		return 0;
+    		return 1;
     	}
     }
     
-    return 1;
+    return 0;
 }
 
 sub is_void_based
@@ -541,7 +618,7 @@ sub get_init_system
         return "systemd";
     }
 
-    if (-d "/etc/init.d" && -d "/etc/init.d/openrc")
+    if (-d "/etc/init.d" && -e "/etc/init.d/openrc")
     {
         return "openrc";
     }
@@ -576,7 +653,7 @@ sub get_init_system
 
 sub get_pid1_comm
 {
-    my $comm = "ps -p 1 -o comm= 2>/dev/null";
+    my $comm = `ps -p 1 -o comm= 2>/dev/null`;
     chomp($comm);
     
     return $comm;
@@ -599,7 +676,7 @@ sub prompt_user
 
     $user_input =~ s/^\s+|\s+$//g;
     $user_input = lc($user_input);
-    $user_input = lc($default) if !$user_input;
+    $user_input = lc($user_input // $default);
     
     if ($user_input =~ /^(y|ye|yes)$/)
     {

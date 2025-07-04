@@ -12,15 +12,66 @@ use constant RESET => "\e[0m";
 
 =head1 NAME
 
-...
-    
+Tum::InitSystem::S6 - Perl interface to interact with the s6-rc service manager on Unix systems.
+
+=head1 SYNOPSIS
+
+    use Tum::InitSystem::S6;
+
+    my $s6 = Tum::InitSystem::S6->new('-u', 'start', 'sshd');
+
+    if ($s6->execute)
+    {
+        print "Service started successfully\n";
+    }
+    else
+    {
+        print "Failed to start service\n";
+    }
+
 =head1 DESCRIPTION
 
-...
+This module provides a programmatic Perl interface for managing services using the
+C<s6-rc> command, part of the s6 suite of process supervision tools.
 
-=head1 FUNCTIONS
+It allows object-oriented invocation of common C<s6-rc> commands with full control
+over service startup, shutdown, state changes, and queries.
 
-...
+The required mode argument (e.g. C<-u>) determines how s6-rc is invoked, and all commands
+are dispatched through Perl methods or by passing the command name to the constructor.
+
+=head1 METHODS
+
+=head2 new($mode, $command, $args)
+
+Constructs a new C<Tum::InitSystem::S6> object.
+
+=over 4
+
+=item * C<$mode>: Required. One of C<-u>, C<-d>, or C<-D> to indicate the s6-rc invocation mode:
+
+    - C<-u>: live directory (actual system control)
+    - C<-d>: dry-run mode
+    - C<-D>: compiled service database (no state interaction)
+
+=item * C<$command>: A string containing a supported s6-rc command (e.g., 'start', 'stop', etc.)
+
+=item * C<$args>: Optional. Additional arguments passed to the command as a string.
+
+=back
+
+=head2 execute()
+
+Executes the command specified in the constructor.
+
+Returns true on success and false on failure.
+
+=head1 SUPPORTED COMMANDS
+
+help, list, listall, diff, start, stop, change
+
+Each of these commands can be passed to the constructor (e.g., `'start'`), or
+called as an object method (e.g., `$s6->start`).
 
 =head1 AUTHOR
 

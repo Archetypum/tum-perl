@@ -52,6 +52,90 @@ sub xbps_query
     execute(@cmd);
 }
 
+sub xbps_query_list_pkgs
+{
+    my @args = @_;
+    my @cmd = ("xbps-query", "--list-pkgs", @args);
+    execute(@cmd);
+}
+
+sub xbps_query_list_hold_pkgs
+{
+    my @args = @_;
+    my @cmd = ("xbps-query", "--list-hold-pkgs", @args);
+    execute(@cmd);
+}
+
+sub xbps_query_list_repos
+{
+    my @args = @_;
+    my @cmd = ("xbps-query", "--list-repos", @args);
+    execute(@cmd);
+}
+
+sub xbps_query_list_manual_pkgs
+{
+    my @args = @_;
+    my @cmd = ("xbps-query", "--list-manual-pkgs", @args);
+    execute(@cmd);
+}
+
+sub xbps_query_list_orphans
+{
+    my @args = @_;
+    my @cmd = ("xbps-query", "--list-orphans", @args);
+    execute(@cmd);
+}
+
+sub xbps_query_ownedby
+{
+    my @args = @_;
+    my @cmd = ("xbps-query", "--ownedby", @args);
+    execute(@cmd);
+}
+
+sub xbps_query_show
+{
+    my @args = @_;
+    my @cmd = ("xbps-query", "--show", @args);
+    execute(@cmd);
+}
+
+sub xbps_query_search
+{
+    my @args = @_;
+    my @cmd = ("xbps-query", "--search", @args);
+    execute(@cmd);
+}
+
+sub xbps_query_files
+{
+    my @args = @_;
+    my @cmd = ("xbps-query", "--files", @args);
+    execute(@cmd);
+}
+
+sub xbps_query_deps
+{
+    my @args = @_;
+    my @cmd = ("xbps-query", "--deps", @args);
+    execute(@cmd);
+}
+
+sub xbps_query_revdeps
+{
+    my @args = @_;
+    my @cmd = ("xbps-query", "--revdeps", @args);
+    execute(@cmd);
+}
+
+sub xbps_query_cat
+{
+    my @args = @_;
+    my @cmd = ("xbps-query", "cat", @args);
+    execute(@cmd);
+}
+
 sub execute
 {
     my @execution_target = @_;

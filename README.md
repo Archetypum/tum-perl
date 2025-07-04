@@ -4,7 +4,7 @@
 
 **Tum (TheUnixManager)** is a universal package management and initialization system library created by **Archetypum**, designed to simplify interaction with various UNIX-like systems and streamline the creation of system-related scripts.
 
-This is the Perl implementation of Tum.
+This is the Perl implementation of `tum`.
 
 ---
 
@@ -34,7 +34,7 @@ make test
 make install
 ```
 
-## Supported Package Management Utilities (36)
+## Supported Package Management Utilities (35)
 
 ### Debian-based:
 
@@ -46,7 +46,7 @@ make install
 
 ### Gentoo-based:
 
-- **portage**
+- **portage** (open for pull requests)
 
 ### Slackware-based:
 
@@ -122,6 +122,35 @@ perldoc lib/Tum/InitSystem/SysVinit.pm
 
 ## Example Usage
 
+### UNIX:
+
+```perl
+#!/usr/bin/perl
+
+use Tum qw(
+    get_user_distro
+    is_debian_based
+    is_arch_based
+    get_init_system
+    clear_screen
+    prompt_user
+    check_privileges
+    RED RESET
+);
+
+my $distro = get_user_distro();
+
+if (is_debian_based($distro, @DEBIAN_BASED))
+{
+    print "You are using a Debian-based distro.\n";
+}
+
+my $init = get_init_system();
+print "your init system: $init\n";
+```
+
+### Service Management:
+
 ```perl
 #!/usr/bin/perl
 
@@ -129,6 +158,17 @@ use Tum::InitSystem::OpenRC;
 
 my $svc = Tum::InitSystem::OpenRC->new("restart", "sshd");
 $svc->execute;
+```
+
+### Package Management
+
+```
+#!/usr/bin/perl
+
+use Tum::PackageManager::Apt;
+
+print "Installing packages..."
+my $pm = Tum::PackageManager::Apt::apt_install("neofetch", "htop", "vrms");
 ```
 
 ## Other Implementations by Archetypum

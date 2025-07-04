@@ -4,9 +4,9 @@
 
 1) ~~Finish main Tum module~~.
 
-2) Add ~~**dinit**~~, ~~**launchd**~~, ~~**s6**~~, ~~**openrc**~~, ~~**runit**~~ init support. (COMPLETE!)
+2) **FINISHED!**: Add ~~**dinit**~~, ~~**launchd**~~, ~~**s6**~~, ~~**openrc**~~, ~~**runit**~~ init support.
 
-3) Add ~~**dpkg**~~, **xbps-install**, **xbps-remove**, **xbps-query**, **portage**, ~~**homebrew**~~, ~~**slackpkg**~~ pm support.
+3) **FINISHED!**: Add ~~**dpkg**~~, ~~**xbps-install**~~, ~~**xbps-remove**~~, ~~**xbps-query**~~, **portage**, ~~**homebrew**~~, ~~**slackpkg**~~ pm support (**portage** is open for pull-requests).
 
 4) Finish **POD** documentation.
 
