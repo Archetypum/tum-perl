@@ -239,7 +239,7 @@ our @GENTOO_BASED = (
     # <https://www.gentoo.org/>
     
     "gentoo", "argent", "pentoo", "funtoo", "calculate", "chromeosflex", "vidalinux", "knopperdisk", "gentoox", "sabayon", "chromiumos",
-    "tinhatlinux", "ututo", "exgent", "flatcarlinux", "gentooplayer", "decibel". "liguros", "macaronilinux", "moccacinoos", "xenialinux",
+    "tinhatlinux", "ututo", "exgent", "flatcarlinux", "gentooplayer", "decibel", "liguros", "macaronilinux", "moccacinoos", "xenialinux",
     "redcorelinux", "porteuskiosk", "navynos", "ututo", "redwall", "papug", "toorox", "librete", "coreos", "shark", "zerahstar", "ibox",
     "gentooth", "mayix", "bicom", "bintoo", "phaeronix", "flash", "vlos", "systemrescue", "litrix", "iollix"
 );
@@ -264,7 +264,7 @@ our @SLACKWARE_BASED = (
 
     "slackware", "root", "evilentity", "blin", "stux", "jolinux", "netwosix", "connochaet", "salix", "ultima", "slackintosh", "slamd64", "easys",
     "topologilinux", "truva", "draco", "slackel", "cdlinux", "kongoni", "sms", "linvo", "rubix", "drinou", "bearops", "rip", "livecdrouter",
-    "porteus", "austrumi", "wifislax", "absolute", "bluewhite64". "howtux", "pqui", "voltalinux". "slampp", "zenwalk", "zencafe", "imagineos",
+    "porteus", "austrumi", "wifislax", "absolute", "bluewhite64". "howtux", "pqui", "voltalinux", "slampp", "zenwalk", "zencafe", "imagineos",
     "darkstar", "openlab", "runt", "buffalo", "mutagenix", "klax", "lg3d", "nimblex", "dvl", "arudius", "alixe", "parslinux", "wolvix", "tumix",
     "saxenos", "nonux", "tumix", "whoppix", "freepia", "slax", "supergamer", "vector", "plamo", "sentryfirewall"
 );
@@ -313,7 +313,7 @@ our @OPENBSD_BASED = (
     # <https://www.openbsd.org/>
     
     "openbsd", "adj", "libertybsd", "bitrig", "bowlfish", "ekkobsd", "embsd", "fabbsd", "fuguita", "marbsd", "microbsd", "commixwall", "bsdanywhere",
-    "miros", "olivebsd", "psygnat", "quetzal", "sonafr", "hyperbolabsd", "aeriebsd", "anonymos", "utmfw", "fabbsd", "gnobsd" 
+    "miros", "olivebsd", "psygnat", "quetzal", "sonafr", "hyperbolabsd", "aeriebsd", "anonymos", "utmfw", "gnobsd" 
 );
 
 our @NETBSD_BASED = (
